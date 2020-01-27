@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
 import DetailMain from "./DetailMain";
 import Overview from "./Overview";
 import Logo from "./Logo";
@@ -31,18 +30,16 @@ export default class Sean extends Component {
 
   render(){
     return (
-      <Router>
-        <div className="container">
-          <DetailMain projectmain={this.projectmain} />
-          <Overview overview={this.overview} />
-          <Logo />
-          <BrandingPackage />
-          <Moodboard />
-          <PaperPrototyping />
-          <Mockup projectmockup={this.projectmockup} />
-          <Footer />
-        </div>
-      </Router>
+      <div className="container">
+        <DetailMain projectmain={this.projectmain} />
+        <Overview overview={this.overview} />
+        <Logo />
+        <BrandingPackage />
+        <Moodboard />
+        <PaperPrototyping />
+        <Mockup projectmockup={this.projectmockup} />
+        <Footer />
+      </div>
     );
   }
 }

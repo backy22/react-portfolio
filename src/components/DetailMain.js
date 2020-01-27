@@ -7,15 +7,19 @@ export default class DetailMain extends Component {
       <section className="detailmain">
         <div className="detailmain-flexbox">
           <div className="detailmain-box">
-            <h1>{this.props.projectmain.title}</h1>
-            <p>{this.props.projectmain.type}</p>
-            <div>
-              <a href={this.props.projectmain.weblink}><button>VIEW LIVE</button></a>
-              <a href={this.props.projectmain.githublink}><button>VIEW CODE</button></a>
+            <div className="detailmain-box-text">
+              <h1>{this.props.projectmain.title}</h1>
+              <p>{this.props.projectmain.type}</p>
+              <div>
+                <a href={this.props.projectmain.weblink}><button>VIEW LIVE</button></a>
+                <a href={this.props.projectmain.githublink}><button>VIEW CODE</button></a>
+              </div>
             </div>
           </div>
           <div className="detailmain-box">
-            <img src={this.props.projectmain.mainimg} />
+            <div className="detailmain-box-image">
+              <img src={this.props.projectmain.mainimg} />
+            </div>
           </div>
         </div>
         <div className="arrow">

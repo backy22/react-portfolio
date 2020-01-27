@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
 import DetailMain from "./DetailMain";
 import Overview from "./Overview";
 import Mockup from "./Mockup";
@@ -44,15 +43,13 @@ export default class GiveTake extends Component {
 
   render(){
     return (
-      <Router>
-        <div className="container">
-          <DetailMain projectmain={this.projectmain}/>
-          <Overview overview={this.overview} />
-          <Mockup projectmockup={this.projectmockup} />
-          <Product projectproduct={this.projectproduct}/>
-          <Footer />
-        </div>
-      </Router>
+      <div className="container">
+        <DetailMain projectmain={this.projectmain}/>
+        <Overview overview={this.overview} />
+        <Mockup projectmockup={this.projectmockup} />
+        <Product projectproduct={this.projectproduct}/>
+        <Footer />
+      </div>
     );
   }
 }
