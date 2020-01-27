@@ -1,13 +1,399 @@
+/* default */
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: proxima-nova, sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: calc((100% + 0.3vw)*0.7);
+  line-height: 1.8;
+  scroll-behavior: smooth;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+  font-family: 'dosis';
+  src: url('/font/Dosis-VariableFont.ttf');
+}
+
+img {
+  width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+section {
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 80px;
+}
+
+h1, h2 {
+  font-family: 'dosis', sans-serif;
+  margin-bottom: 50px;
+}
+
+button {
+  border: 1px solid;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.2em;
+  font-family: 'dosis', sans-serif;
+  margin: 20px;
+}
+
+video {
+  max-height: 90vh;
+}
+
+.video {
+  position: relative;
+  height: 0;
+  padding-top: 56.25%
+}
+
+.video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.sp {
+  display: none;
+}
+
+@media screen and (max-width: 640px) {
+  .pc {
+    display: none;
+  }
+
+  .sp {
+    display: block;
+  }
+}
+
+/* header */
+header {
+ overflow: hidden;
+ font-family: 'Fira Sans', sans-serif; /* heading */
+ padding: 20px;
+ width: 90%;
+ margin: 0 auto;
+ height: 5vh;
+}
+
+.resume {
+  float: left;
+}
+
+nav {
+  float: right;
+}
+
+nav ul {
+  list-style: none;
+  
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  
+  -webkit-flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+nav li {
+  width: 100px;
+  font-size: 1em;
+  text-align: center;
+}
+
+nav .active a, nav li a:hover {
+  color: #5ecbf5;
+}
+
+li a {
+  text-decoration: none;
+  color: #000;
+}
+
+button {
+  background: transparent;
+}
+
+@media screen and (max-width: 640px) {
+  nav {
+    height: 100vh;
+    width: 100vw;
+    background-color: #5ecbf5;
+    text-align: center;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  nav ul {
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav ul li {
+    font-size: 2em;
+    margin: 0 auto;
+    width: auto;
+  }
+
+}
+
+
+/* home main */
+.homemain {
+  display: table;
+  height: 85vh;
+}
+
+.typing {
+  display: table-cell;
+  font-size: 3em;
+  vertical-align: middle;
+  text-align: center;
+  overflow: hidden;
+  margin: 0 auto;
+  letter-spacing: .15em;
+  /*animation: 
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite; */
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #5ecbf5; }
+}
+
+.arrow {
+  position: absolute;
+  bottom: 10px;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  width: 50px;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .arrow {
+    width: 30px;
+  }
+}
+
+/* skills */
+#skills img {
+  height: 30px;
+}
+
+.skills-wrapper {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  grid-row-gap: 75px;
+}
+
+.skill-name {
+  margin-top: 15px;
+}
+
+@media screen and (max-width: 640px) {
+  .skills-wrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* projects */
+.projects-wrapper {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-row-gap: 30px;
+}
+
+.thumbnail {
+  width: 100%;
+  height: auto;
+}
+
+h2 {
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.project-title a {
+  display: inline-block;
+}
+
+.linkicon {
+  height: 1.2em;
+  margin-left: 10px;
+  vertical-align: middle;
+  width: 20px;
+}
+
+.projects-wrapper p {
+  margin: 0;
+}
+
+@media screen and (max-width: 640px) {
+  .projects-wrapper {
+    display: block;
+  }
+
+  .project {
+    margin-bottom: 20px;
+  }
+}
+
+
+/* about */
+.profile-image {
+  float: left;
+  width: 20%;
+}
+
+.profile-text {
+  float: right;
+  width: 70%;
+}
+
+.profile-wrapper {
+  overflow: hidden;
+}
+
+.email {
+  font-size: 1.3em;
+  font-weight: 700;
+}
+
+@media screen and (max-width: 640px) {
+  .profile-image, .profile-text {
+    width: 100%;
+  }
+
+  .profile-image {
+    text-align: center;
+  }
+
+  .profile-image img {
+    width: 80%;
+  }
+}
+
+/* footer */
+footer {
+  background-color: #5ecbf5;
+  color: #ffffff;
+}
+
+footer img {
+  margin-right: 10%;
+  width: 30px;
+}
+
+footer section {
+  margin-bottom: 0;
+}
+
+.copyright {
+  text-align: center;
+}
+
+/* detail main */
+.detailmain {
+  height: 85vh;
+}
+
+.detailmain h1 {
+  margin: 0;
+}
+
+.detailmain-flexbox {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  display: flex;
+  width: 100%;
+  text-align: center;
+  vertical-align: middle;
+  align-items: center;
+}
+
+.detailmain-box {
+  width: 50%;
+}
+
+.detailmain-box img {
+  width: 80%;
+}
+
+@media screen and (max-width: 640px) {
+  .detailmain-flexbox {
+    display: block;
+  }
+
+  .detailmain-box {
+    width: 100%;
+    height: 50vh;
+  }
+}
+
+/* overview */
+
+/* logo */
+
+/* branding package */
+.branding-package img{
+  width: 50%;
+}
+
+/* moodboard */
+.moodboard img {
+  width: 50%;
+  vertical-align: top;
+}
+
+/* paper prototyping */
+
+/* mockup */
+.mockup-button {
+  text-align: center;
+}
+
+.mockup img {
+  margin: 20px 0;
+}
+
+/* product */
+.product-buttons {
+  text-align: center;
 }
