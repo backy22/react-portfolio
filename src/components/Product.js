@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import arrow from "../img/arrow.svg";
 
 export default class Product extends Component {
 

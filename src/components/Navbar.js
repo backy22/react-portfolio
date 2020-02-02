@@ -38,9 +38,9 @@ const StyledMenu = styled.nav`
   }
 `
 
-const Menu = ({ open }) => {
+const Menu = ({ open, setOpen }) => {
   return (
-    <StyledMenu open={open}>
+    <StyledMenu open={open} onClick={() => setOpen(!open)}>
       <ul>
         <li>
           <Link to="/#homemain">Home</Link>
@@ -62,7 +62,7 @@ const Menu = ({ open }) => {
 const StyledBurger = styled.button`
   position: absolute;
   top: 1rem;
-  right: 1rem;
+  right: 3rem;
   display: flex;
   flex-direction: column;
   justify-content: space-around;

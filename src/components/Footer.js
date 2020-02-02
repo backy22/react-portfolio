@@ -10,9 +10,11 @@ export default class Footer extends Component {
       <footer>
         <section>
         <h1>Let&apos;s Connect</h1>
-        <a href="https://github.com/backy22" target="blank"><img src={github} alt="icon of github"/></a>
-        <a href="https://www.instagram.com/ayatsubakino/" target="blank"><img src={instagram} alt="icon of instagram" /></a>
-        <a href="https://www.linkedin.com/in/ayatsubakino/" target="blank"><img src={linkedin} alt="icon of linkedin" /></a>
+        <div className="snslink">
+          <a href="https://github.com/backy22" target="blank"><img src={github} alt="icon of github"/></a>
+          <a href="https://www.instagram.com/ayatsubakino/" target="blank"><img src={instagram} alt="icon of instagram" /></a>
+          <a href="https://www.linkedin.com/in/ayatsubakino/" target="blank"><img src={linkedin} alt="icon of linkedin" /></a>
+        </div>
         </section>
         <div className="copyright">
           <small>Copyright 2020</small>

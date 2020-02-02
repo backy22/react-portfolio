@@ -5,7 +5,6 @@ import Wireframes from "./Wireframes";
 import StyleGuide from "./StyleGuide";
 import Mockup from "./Mockup";
 import Product from "./Product";
-import Footer from "./Footer";
 import seanMain from "../img/sean-main.png";
 import seanMockup from "../img/sean-mockup.png";
 
@@ -42,7 +41,6 @@ export default class Sean extends Component {
         <StyleGuide />
         <Mockup projectmockup={this.projectmockup} />
         <Product projectproduct={this.projectproduct} />
-        <Footer />
       </div>
     );
   }

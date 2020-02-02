@@ -18,12 +18,12 @@ export default class DetailMain extends Component {
           </div>
           <div className="detailmain-box">
             <div className="detailmain-box-image">
-              <img src={this.props.projectmain.mainimg} />
+              <img src={this.props.projectmain.mainimg} alt="main" />
             </div>
           </div>
         </div>
         <div className="arrow">
-          <a href="#overview"><img src={arrow} /></a>
+          <a href="#overview"><img src={arrow} alt="arrow icon"/></a>
         </div>
       </section>
     );

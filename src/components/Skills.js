@@ -19,7 +19,7 @@ import xd from "../img/xd.svg";
 
 const Skill = props => (
   <div className="skill">
-    <img src={props.skill.icon} />
+    <img src={props.skill.icon} alt="skill icon"/>
     <div className="skill-name">{props.skill.skillname}</div>
   </div>
 )
@@ -45,10 +45,6 @@ const skills = [
   ];
 
 export default class Skills extends Component {
-  constructor(props){
-    super(props);
-  }
-
   skillList() {
     return skills.map(skill => {
       return <Skill skill={skill} />;

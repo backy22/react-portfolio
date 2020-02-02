@@ -4,7 +4,7 @@ export default class Mockup extends Component {
   imgList(){
     if (this.props.projectmockup.images){
       return this.props.projectmockup.images.map(image => {
-        return <img src={image} />;
+        return <img key={image} src={image} alt="mockup"/>;
       })
     }else{
       return null
@@ -14,7 +14,7 @@ export default class Mockup extends Component {
   youtubeList(){
     if (this.props.projectmockup.youtubelinks){
       return this.props.projectmockup.youtubelinks.map(youtubelink => {
-        return <div className="video demo"><iframe width="853" height="480" src={"https://www.youtube.com/embed/" + youtubelink + "?&autoplay=1&rel=0&loop=1&playlist=" + youtubelink} frameBorder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe></div>
+        return <div className="video demo"><iframe width="853" height="480" src={"https://www.youtube.com/embed/" + youtubelink + "?&autoplay=1&rel=0&loop=1&playlist=" + youtubelink} frameBorder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowFullScreen title="mockupvideo"></iframe></div>
       })
     }else{
       return null

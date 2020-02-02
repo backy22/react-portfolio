@@ -3,7 +3,6 @@ import DetailMain from "./DetailMain";
 import Overview from "./Overview";
 import Mockup from "./Mockup";
 import Product from "./Product";
-import Footer from "./Footer";
 import givetakeMain from "../img/givetake-main.png";
 import givetakeMockup1 from "../img/givetake-mockup1.png";
 import givetakeMockup2 from "../img/givetake-mockup2.png";
@@ -27,7 +26,7 @@ export default class GiveTake extends Component {
     }
     this.projectproduct = {
       text: ["This application consists of these functions;", 
-            <ul>
+            <ul key="givetake">
               <li>Signin / login / logout</li>
               <li>Show user page</li>
               <li>Edit the name and profile of the user</li>
@@ -48,7 +47,6 @@ export default class GiveTake extends Component {
         <Overview overview={this.overview} />
         <Mockup projectmockup={this.projectmockup} />
         <Product projectproduct={this.projectproduct}/>
-        <Footer />
       </div>
     );
   }

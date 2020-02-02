@@ -8,7 +8,7 @@ import tsubakiThumbnail from "../img/tsubaki-thumbnail.png";
 const Project = props => {
   return (
   <div className="project">
-    <a href={props.project.detaillink}><img className="thumbnail" src={props.project.thumbnail} /></a>
+    <a href={props.project.detaillink}><img className="thumbnail" src={props.project.thumbnail} alt="project thumbnail"/></a>
     <h2 className="project-title">
       {props.project.title}
       <WebLink project={props.project} />
@@ -23,7 +23,7 @@ const Project = props => {
 const WebLink = props => {
   if (props.project.weblink){
     return (
-      <a href={props.project.weblink} target="blank"><img className="linkicon" src={weblink} /></a>
+      <a href={props.project.weblink} target="blank"><img className="linkicon" src={weblink} alt="web link icon"/></a>
     );
   }else{
     return null;
@@ -33,7 +33,7 @@ const WebLink = props => {
 const GithubLink = props => {
   if (props.project.githublink){
     return (
-      <a href={props.project.githublink} target="blank"><img className="linkicon" src={githublink} /></a>
+      <a href={props.project.githublink} target="blank"><img className="linkicon" src={githublink} alt="github icon"/></a>
     );
   }else{
     return null;
@@ -47,10 +47,6 @@ const projects = [
 ]
 
 export default class Projects extends Component {
-  constructor(props){
-    super(props);
-  }
-
   projectList() {
     return projects.map(project => {
       return <Project project={project} />;
@@ -63,6 +59,9 @@ export default class Projects extends Component {
         <h1>Projects</h1>
         <div className="projects-wrapper">
           {this.projectList()}
+        </div>
+        <div className="linktoarchive">
+          <a href="https://ayatsubakino.com/archive" target="blank"><i class="fas fa-arrow-right"></i> All Projects</a>
         </div>
       </section>
     );

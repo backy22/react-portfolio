@@ -6,7 +6,6 @@ import BrandingPackage from "./BrandingPackage";
 import Moodboard from "./Moodboard";
 import PaperPrototyping from "./PaperPrototyping";
 import Mockup from "./Mockup";
-import Footer from "./Footer";
 import tsubakiMain from "../img/tsubaki-main.png";
 
 export default class Sean extends Component {
@@ -38,7 +37,6 @@ export default class Sean extends Component {
         <Moodboard />
         <PaperPrototyping />
         <Mockup projectmockup={this.projectmockup} />
-        <Footer />
       </div>
     );
   }
