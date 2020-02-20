@@ -123,11 +123,34 @@ const BurgerMenu = () => {
 }
 
 export default class Navbar extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isTop: true
+    };
+    this.onScroll = this.onScroll.bind(this);
+  }
+
+  componentDidMount() {
+    document.addEventListener('scroll', () => {
+      const isTop = window.scrollY < window.innerHeight;
+      if (isTop !== this.state.isTop) {
+        this.onScroll(isTop);
+      }
+    });
+  }
+
+  onScroll(isTop) {
+    this.setState({ isTop });
+  }
+
   render() {
     return (
-      <header>
-        <div className="resume">
-          <a href={resume} target="blank">Resume</a>
+      <header className={this.state.isTop ? 'white-header' : 'blue-header'}>
+        <div className="header-left">
+          <div className="logo">#AyaTsubakino</div>
+          <div className="resume"><a href={resume} target="blank"><button>Resume</button></a></div>
         </div>
         <BurgerMenu />
         <nav className="pc">

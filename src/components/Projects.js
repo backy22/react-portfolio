@@ -41,7 +41,7 @@ const GithubLink = props => {
 }
 
 const projects = [
-  {detaillink: "/givetake", thumbnail: givetakeThumbnail, title: "Give & Take App", weblink: "https://givetake-pro.web.app", githublink: "https://github.com/backy22/givetake", type: "React project", skills: "Sketch, Mockup, React, Redux, Material-UI, Firebase"},
+  {detaillink: "/givetake", thumbnail: givetakeThumbnail, title: "Give & Take App", weblink: "https://givetake-pro.web.app", githublink: "https://github.com/backy22/givetake", type: "React project", skills: " React, Redux, Material-UI, Firebase, Sketch, Mockup"},
   {detaillink: "/sean", thumbnail: seanThumbnail, title: "Sean Connery's website", weblink: "https://ayatsubakino.com/webd100/finalassignment/", githublink: "https://github.com/backy22/web_tech1/tree/master/finalassignment", type: "Redesign", skills: "Wireframe, Mockup, Illustrator, Photoshop, HTML, CSS, JavaScript"},
   {detaillink: "/tsubaki", thumbnail: tsubakiThumbnail, title: "Design Agent website", weblink: "", githublink: "", type: "Responsive design", skills: "Moodboard, Paper Prototyping, Mockup, Photoshop, Illustrator, XD"}
 ]
@@ -61,7 +61,7 @@ export default class Projects extends Component {
           {this.projectList()}
         </div>
         <div className="linktoarchive">
-          <a href="https://ayatsubakino.com/archive" target="blank"><i class="fas fa-arrow-right"></i> All Projects</a>
+          <a href="https://ayatsubakino.com/archive" target="blank"><i className="fas fa-arrow-right"></i> All Projects</a>
         </div>
       </section>
     );

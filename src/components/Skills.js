@@ -25,16 +25,16 @@ const Skill = props => (
 )
 
 const skills = [
-    {icon: html, skillname: "HTML"},
-    {icon: css, skillname: "CSS"},
-    {icon: js, skillname: "JavaScript"},
-    {icon: jquery, skillname: "jQuery"},
     {icon: react, skillname: "React"},
     {icon: nodejs, skillname: "Node.js"},
-    {icon: bootstrap, skillname: "Bootstrap"},
+    {icon: js, skillname: "JavaScript"},
+    {icon: jquery, skillname: "jQuery"},
     {icon: rails, skillname: "Ruby on Rails"},
     {icon: postgres, skillname: "PostgreSQL"},
     {icon: mysql, skillname: "MySQL"},
+    {icon: html, skillname: "HTML"},
+    {icon: css, skillname: "CSS"},
+    {icon: bootstrap, skillname: "Bootstrap"},
     {icon: wordpress, skillname: "WordPress"},
     {icon: php, skillname: "PHP"},
     {icon: git, skillname: "Git"},

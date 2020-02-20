@@ -13,18 +13,19 @@ export default class About extends Component {
           </div>
           <div className="profile-text">
             <p>
-              <span>&#129306;</span>Hi, my name is Aya and I’m a front-end developer & designer in Toronto🇨🇦, born and raised in Japan🇯🇵
+              <span>&#129306;</span>Hi, my name is <span className="logo">#AyaTsubakino</span>! and I’m a Full-Stack developer passionate about design located in Toronto🇨🇦, born and raised in Japan🇯🇵
               <br />
               <br />
-              I am focusing on the practice of UX/UI Design, Web Design, and Front End Development in the Multimedia Design and Development program at Humber College. Also, I have three years experience as a back-end developer💪
+              I am focusing on the practice of Front End Development, Web Design, and UX/UI Design, Web Design in the Multimedia Design and Development program at Humber College. Also, I have three years experience as a back-end developer mainly using Ruby on Rails💪
               <br />
               <br />
-              I am passionate about solving problems and creating unique and functional websites&#128525;
+              I am passionate about solving problems and creating unique and functional UI&#128525;
               <br />
               <br />
               Please reach me at
               <br />
-              <span className="email">aya.tsubakino@gmail.com</span>
+              <a href="mailto:aya.tsubakino@gmail.com?subject=I%20want%20to%20hire%20Aya&body=Hi,%20Aya"><span className="email">aya.tsubakino@gmail.com</span>
+</a>
             </p>
           </div>
         </div>

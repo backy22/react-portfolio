@@ -35,7 +35,7 @@ h1 {
   margin-bottom: 40px;
 }
 
-section button {
+button {
   border: 1px solid;
   padding: 15px 27px;
   text-align: center;
@@ -46,7 +46,7 @@ section button {
   margin: 15px;
 }
 
-section button:hover {
+button:hover {
   background: #5ecbf5;
   color: #ffffff;
 }
@@ -87,25 +87,43 @@ video {
   }
 }
 
+.logo {
+  color: #5ecbf5;
+}
+
 /* header */
 header {
- padding: 20px;
+ padding: 10px 10vw;
  width: 100%;
- margin: 0 auto;
- height: 5vh;
+ box-sizing: border-box;
  background: #ffffff;
  position: fixed;
  z-index: 10;
  top: 0;
 }
 
-.resume {
+.blue-header {
+  transition: background 3s;
+  background: #5ecbf5;
+}
+
+.blue-header .logo {
+  color: #ffffff;
+}
+
+.header-left {
   float: left;
+  display: flex;
+  align-items: center;
+}
+
+header button {
+  padding: 5px 10px;
+  font-size: 1em;
 }
 
 nav {
   float: right;
-  margin-right: 5vw;
 }
 
 nav ul {
@@ -134,6 +152,10 @@ nav .active a, nav li a:hover {
 li a {
   text-decoration: none;
   color: #000;
+}
+
+.blue-header li a {
+  color: #ffffff;
 }
 
 button {
@@ -173,29 +195,71 @@ button {
 .homemain {
   display: table;
   height: 85vh;
+  width: 60vw;
+}
+
+.Typist {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .typing {
-  display: table-cell;
-  font-size: 2em;
-  vertical-align: middle;
-  text-align: center;
-  overflow: hidden;
-  margin: 0 auto;
-  letter-spacing: .15em;
-  /*animation: 
-    typing 3.5s steps(40, end),
-    blink-caret .75s step-end infinite; */
+  font-size: 1.8em;
+  letter-spacing: .10em;
 }
 
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
+.Cursor--blinking {
+  display: none;
 }
 
-@keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% { border-color: #5ecbf5; }
+.highlight {
+  border-bottom: 2px solid #5ecbf5;
+}
+
+.hand {
+  display: inline-block;
+  margin: 0;
+  -webkit-animation: wiggle 1s infinite;
+  -moz-animation: wiggle 1s infinite;
+  animation: wiggle 1s infinite;
+}
+
+@keyframes wiggle {
+  0% { transform: rotate(-10deg); }
+  25% { transform: rotate(10deg); }
+  50% { transform: rotate(-10deg); }
+  75% { transform: rotate(10deg); }
+  100% { transform: rotate(-10deg); }
+}
+
+.flag {
+  display: inline-block;
+  margin: 0;
+  -webkit-animation: flip 1s infinite;
+  -moz-animation: flip 1s infinite;
+  animation: flip 1s infinite;
+}
+
+@keyframes flip {
+  0% { transform: rotate3d(0, 1, 0, 0deg); }
+  50% { transform: rotate3d(0, 1, 0, 180deg); }
+  100% { transform: rotate3d(0, 1, 0, 0deg); }
+}
+
+.grow {
+  display: inline-block;
+  margin: 0;
+  -webkit-animation: updown 1s infinite;
+  -moz-animation: updown 1s infinite;
+  animation: updown 1s infinite;
+}
+
+@keyframes updown {
+  0%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-3px); }
+  60% { transform: translateY(-6px); }
 }
 
 .arrow {
@@ -209,15 +273,9 @@ button {
 }
 
 @keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-30px);
-  }
-  60% {
-    transform: translateY(-15px);
-  }
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-30px); }
+  60% { transform: translateY(-15px); }
 }
 
 @media screen and (max-width: 640px) {
@@ -349,7 +407,7 @@ footer section {
 }
 
 footer h1 {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 footer {
@@ -368,7 +426,7 @@ footer section {
 
 .copyright {
   text-align: center;
-  margin-top: 15px;
+  margin-top: 10px;
 }
 
 @media screen and (max-width: 640px) {
