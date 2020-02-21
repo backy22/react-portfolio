@@ -316,6 +316,11 @@ button {
 .thumbnail {
   width: 100%;
   height: auto;
+  transition: 0.3s;
+}
+
+.thumbnail:hover {
+  border-radius: 30px;
 }
 
 .projects-wrapper h2 {
@@ -333,6 +338,10 @@ button {
   margin-left: 10px;
   vertical-align: middle;
   width: 20px;
+}
+
+.linkicon:hover > .cls-1 {
+  fill: #5ecbf5;
 }
 
 .projects-wrapper p {
