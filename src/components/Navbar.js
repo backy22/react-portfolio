@@ -149,7 +149,7 @@ export default class Navbar extends Component {
     return (
       <header className={this.state.isTop ? 'white-header' : 'blue-header'}>
         <div className="header-left">
-          <div className="logo">#AyaTsubakino</div>
+          <div className="logo"><Link to='/#homemain'>#AyaTsubakino</Link></div>
           <div className="resume"><a href={resume} target="blank"><button>Resume</button></a></div>
         </div>
         <BurgerMenu />

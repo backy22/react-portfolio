@@ -16,9 +16,10 @@ import photoshop from "../img/photoshop.svg";
 import aftereffect from "../img/aftereffect.svg";
 import illustrator from "../img/illustrator.svg";
 import xd from "../img/xd.svg";
+import WOW from "wowjs";
 
 const Skill = props => (
-  <div className="skill">
+  <div className="skill wow bounceIn">
     <img src={props.skill.icon} alt="skill icon"/>
     <div className="skill-name">{props.skill.skillname}</div>
   </div>
@@ -45,6 +46,10 @@ const skills = [
   ];
 
 export default class Skills extends Component {
+  componentDidMount() {
+		new WOW.WOW().init();
+	}
+
   skillList() {
     return skills.map(skill => {
       return <Skill skill={skill} />;

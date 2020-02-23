@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import givetakeThumbnail from "../img/givetake-thumbnail.png";
 import seanThumbnail from "../img/sean-thumbnail.png";
 import tsubakiThumbnail from "../img/tsubaki-thumbnail.png";
+import WOW from "wowjs";
 
 const Project = props => {
   return (
-  <div className="project">
+  <div className="project wow bounceInUp">
     <a href={props.project.detaillink}><img className="thumbnail" src={props.project.thumbnail} alt="project thumbnail"/></a>
     <h2 className="project-title">
       {props.project.title}
@@ -49,6 +50,10 @@ const projects = [
 ]
 
 export default class Projects extends Component {
+  componentDidMount() {
+		new WOW.WOW().init();
+	}
+
   projectList() {
     return projects.map(project => {
       return <Project project={project} />;

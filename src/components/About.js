@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import profileImage from "../img/profile-image.png";
+import WOW from "wowjs";
 
 export default class About extends Component {
+  componentDidMount() {
+		new WOW.WOW().init();
+	}
 
   render() {
     return (
-      <section id="about">
+      <section id="about" className="wow bounceInLeft">
         <h1>About me</h1>
         <div className="profile-wrapper">
           <div className="profile-image">

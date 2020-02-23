@@ -87,9 +87,6 @@ video {
   }
 }
 
-.logo {
-  color: #5ecbf5;
-}
 
 /* header */
 header {
@@ -107,10 +104,6 @@ header {
   background: #5ecbf5;
 }
 
-.blue-header .logo {
-  color: #ffffff;
-}
-
 .header-left {
   float: left;
   display: flex;
@@ -120,6 +113,15 @@ header {
 header button {
   padding: 5px 10px;
   font-size: 1em;
+}
+
+.logo a {
+  text-decoration: none;
+  color: #5ecbf5;
+}
+
+.blue-header .logo a{
+  color: #ffffff;
 }
 
 nav {
@@ -163,6 +165,10 @@ button {
 }
 
 @media screen and (max-width: 640px) {
+  header {
+    padding: 0 10vw;
+  }
+
   nav {
     height: 100vh;
     width: 100vw;
@@ -188,6 +194,16 @@ button {
     width: auto;
   }
 
+  .ekxFrA {
+    top: 0;
+    right: 10vw;
+    margin: 0;
+  }
+
+  .ekxFrA:hover {
+    background: transparent;
+  }
+
 }
 
 
@@ -196,6 +212,10 @@ button {
   display: table;
   height: 85vh;
   width: 60vw;
+}
+
+.logo {
+  color: #5ecbf5;
 }
 
 .Typist {
@@ -281,6 +301,10 @@ button {
 @media screen and (max-width: 640px) {
   .arrow {
     width: 30px;
+  }
+
+  .Typist {
+    font-size: 0.7em;
   }
 }
 
@@ -478,10 +502,12 @@ footer section {
 .detailmain-box {
   width: 50%;
   margin-top: -50px;
+  overflow: hidden;
 }
 
 .detailmain-box img {
-  width: 80%;
+  margin-top: 50px;
+  width: 70vw;
 }
 
 @media screen and (max-width: 640px) {
@@ -504,12 +530,17 @@ footer section {
   .detailmain-box-image {
     margin-top: -50px;
   }
+  
+  .detailmain-box img {
+    width: 80%;
+  }
+
 
 }
 
 /* overview */
 
-/* logo */
+/* detail-logo */
 
 /* branding package */
 .branding-package img{
