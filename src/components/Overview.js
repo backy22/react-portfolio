@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 export default class Overview extends Component {
-
   render() {
     return (
       <section id="overview" className="overview">

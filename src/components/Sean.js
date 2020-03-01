@@ -5,6 +5,7 @@ import Wireframes from "./Wireframes";
 import StyleGuide from "./StyleGuide";
 import Mockup from "./Mockup";
 import Product from "./Product";
+import ProjectNav from "./ProjectNav";
 import seanMain from "../img/sean-main.png";
 import seanMockup from "../img/sean-mockup.png";
 
@@ -32,6 +33,10 @@ export default class Sean extends Component {
     }
   }
 
+  componentDidMount() {
+    window.scrollTo(0, 0)
+  }
+
   render(){
     return (
       <div className="container">
@@ -41,6 +46,7 @@ export default class Sean extends Component {
         <StyleGuide />
         <Mockup projectmockup={this.projectmockup} />
         <Product projectproduct={this.projectproduct} />
+        <ProjectNav prevlink="projectscms" nextlink="tsubaki"/>
       </div>
     );
   }

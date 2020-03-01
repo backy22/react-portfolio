@@ -3,6 +3,7 @@ import DetailMain from "./DetailMain";
 import Overview from "./Overview";
 import Mockup from "./Mockup";
 import Product from "./Product";
+import ProjectNav from "./ProjectNav";
 import givetakeMain from "../img/givetake-main.png";
 import givetakeMockup1 from "../img/givetake-mockup1.png";
 import givetakeMockup2 from "../img/givetake-mockup2.png";
@@ -13,7 +14,7 @@ export default class GiveTake extends Component {
     this.projectmain = {
       title: "Give & Take App",
       type: "React project",
-      skills: "Sketch, Mockup, React, Redux, Material-UI, Firebase",
+      skills: "React, Redux, Material-UI, Firebase, Sketch, Mockup",
       weblink: "https://givetake-pro.web.app",
       githublink: "https://github.com/backy22/givetake",
       mainimg: givetakeMain 
@@ -40,6 +41,10 @@ export default class GiveTake extends Component {
     }
   }
 
+  componentDidMount() {
+    window.scrollTo(0, 0)
+  }
+
   render(){
     return (
       <div className="container">
@@ -47,6 +52,7 @@ export default class GiveTake extends Component {
         <Overview overview={this.overview} />
         <Mockup projectmockup={this.projectmockup} />
         <Product projectproduct={this.projectproduct}/>
+        <ProjectNav prevlink="" nextlink="projectscms"/>
       </div>
     );
   }

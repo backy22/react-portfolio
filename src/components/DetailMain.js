@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import arrow from "../img/arrow.svg";
+import WOW from "wowjs";
 
 export default class DetailMain extends Component {
+  componentDidMount() {
+		new WOW.WOW().init();
+	}
+
   render() {
     return (
       <section className="detailmain">
@@ -17,7 +22,7 @@ export default class DetailMain extends Component {
             </div>
           </div>
           <div className="detailmain-box">
-            <div className="detailmain-box-image">
+            <div className="detailmain-box-image wow fadeInRight">
               <img src={this.props.projectmain.mainimg} alt="main" />
             </div>
           </div>

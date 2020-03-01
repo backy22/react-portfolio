@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import seanWireframe from "../img/sean-wireframe.jpg";
 
 export default class Wireframes extends Component {
-
   render() {
     return (
       <section className="wireframes">

@@ -333,13 +333,11 @@ button {
 /* projects */
 .projects-wrapper {
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: 1fr 1fr;
   grid-row-gap: 40px;
 }
 
 .thumbnail {
-  width: 100%;
-  height: auto;
   transition: 0.3s;
 }
 
@@ -370,15 +368,6 @@ button {
 
 .projects-wrapper p {
   margin: 0;
-}
-
-.linktoarchive {
-  text-align: end;
-}
-
-.linktoarchive a{
-  text-decoration: none;
-  font-family: 'dosis', sans-serif;
 }
 
 @media screen and (max-width: 640px) {
@@ -567,4 +556,23 @@ footer section {
 /* product */
 .product-buttons {
   text-align: center;
+}
+
+/* project nav */
+.project-nav {
+  text-align: center;
+}
+
+.project-nav .fas {
+  margin: 10px 20px;
+}
+
+.project-nav a {
+  text-decoration: none;
+  color: #000; 
+}
+
+.project-nav a.disabled {
+  pointer-events: none;
+  color: #9e9e9ed1;
 }

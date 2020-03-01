@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import html from "../img/html.svg";
 import css from "../img/css.svg";
+import sass from "../img/sass.svg";
 import js from "../img/js.svg";
 import jquery from "../img/jquery.svg";
 import react from "../img/react.svg";
@@ -9,6 +10,7 @@ import bootstrap from "../img/bootstrap.svg";
 import rails from "../img/rails.svg";
 import postgres from "../img/postgres.svg";
 import mysql from "../img/mysql.svg";
+import firebase from "../img/firebase.svg";
 import wordpress from "../img/wordpress.svg";
 import php from "../img/php.svg";
 import git from "../img/git.svg";
@@ -33,16 +35,18 @@ const skills = [
     {icon: rails, skillname: "Ruby on Rails"},
     {icon: postgres, skillname: "PostgreSQL"},
     {icon: mysql, skillname: "MySQL"},
+    {icon: firebase, skillname: "Firebase"},
     {icon: html, skillname: "HTML"},
     {icon: css, skillname: "CSS"},
+    {icon: sass, skillname: "Sass"},
     {icon: bootstrap, skillname: "Bootstrap"},
     {icon: wordpress, skillname: "WordPress"},
     {icon: php, skillname: "PHP"},
     {icon: git, skillname: "Git"},
-    {icon: photoshop, skillname: "Photoshop"},
-    {icon: aftereffect, skillname: "After Effects"},
     {icon: illustrator, skillname: "Illustrator"},
-    {icon: xd, skillname: "XD"}
+    {icon: xd, skillname: "XD"},
+    {icon: photoshop, skillname: "Photoshop"},
+    {icon: aftereffect, skillname: "After Effects"}
   ];
 
 export default class Skills extends Component {

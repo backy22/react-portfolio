@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import givetakeThumbnail from "../img/givetake-thumbnail.png";
+import projectscmsThumbnail from "../img/projectscms-thumbnail.png";
 import seanThumbnail from "../img/sean-thumbnail.png";
 import tsubakiThumbnail from "../img/tsubaki-thumbnail.png";
 import WOW from "wowjs";
@@ -44,7 +45,8 @@ const GithubLink = props => {
 }
 
 const projects = [
-  {detaillink: "/givetake", thumbnail: givetakeThumbnail, title: "Give & Take App", weblink: "https://givetake-pro.web.app", githublink: "https://github.com/backy22/givetake", type: "React project", skills: " React, Redux, Material-UI, Firebase, Sketch, Mockup"},
+  {detaillink: "/givetake", thumbnail: givetakeThumbnail, title: "Give & Take App", weblink: "https://givetake-pro.web.app", githublink: "https://github.com/backy22/givetake", type: "React project", skills: "React, Redux, Material-UI, Firebase, Sketch, Mockup"},
+  {detaillink: "/projectscms", thumbnail: projectscmsThumbnail, title: "My Projects CMS", weblink: "https://ayatsubakino.com/archive/", githublink: "https://github.com/backy22/portfolio", type: "CMS & Responsive Design", skills: "PHP, MySQL, HTML, CSS, Responsive"},
   {detaillink: "/sean", thumbnail: seanThumbnail, title: "Sean Connery's website", weblink: "https://ayatsubakino.com/webd100/finalassignment/", githublink: "https://github.com/backy22/web_tech1/tree/master/finalassignment", type: "Redesign", skills: "Wireframe, Mockup, Illustrator, Photoshop, HTML, CSS, JavaScript"},
   {detaillink: "/tsubaki", thumbnail: tsubakiThumbnail, title: "Design Agent website", weblink: "", githublink: "", type: "Responsive design", skills: "Moodboard, Paper Prototyping, Mockup, Photoshop, Illustrator, XD"}
 ]
@@ -66,9 +68,6 @@ export default class Projects extends Component {
         <h1>Projects</h1>
         <div className="projects-wrapper">
           {this.projectList()}
-        </div>
-        <div className="linktoarchive">
-          <a href="https://ayatsubakino.com/archive" target="blank"><i className="fas fa-arrow-right"></i> All Projects</a>
         </div>
       </section>
     );

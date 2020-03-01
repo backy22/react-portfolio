@@ -6,6 +6,7 @@ import BrandingPackage from "./BrandingPackage";
 import Moodboard from "./Moodboard";
 import PaperPrototyping from "./PaperPrototyping";
 import Mockup from "./Mockup";
+import ProjectNav from "./ProjectNav";
 import tsubakiMain from "../img/tsubaki-main.png";
 
 export default class Sean extends Component {
@@ -24,7 +25,10 @@ export default class Sean extends Component {
       mockuplink: "",
       youtubelinks: ['WGBAfsfIAiY','5JyUjQvLiK8']
     }
-    
+  }
+
+  componentDidMount() {
+    window.scrollTo(0, 0)
   }
 
   render(){
@@ -37,6 +41,7 @@ export default class Sean extends Component {
         <Moodboard />
         <PaperPrototyping />
         <Mockup projectmockup={this.projectmockup} />
+        <ProjectNav prevlink="/sean" nextlink=""/>
       </div>
     );
   }
