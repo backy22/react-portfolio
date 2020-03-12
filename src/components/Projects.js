@@ -65,7 +65,7 @@ export default class Projects extends Component {
   render() {
     return (
       <section id="projects">
-        <h1>Projects</h1>
+        <h1><span className="highlight">Projects</span></h1>
         <div className="projects-wrapper">
           {this.projectList()}
         </div>

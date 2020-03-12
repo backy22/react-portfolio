@@ -5,7 +5,7 @@ export default class Product extends Component {
   render() {
     return (
       <section className="product">
-      <h1>Product</h1>
+      <h1><span className="highlight">Product</span></h1>
       <div>
         {this.props.projectproduct.text}
       </div>

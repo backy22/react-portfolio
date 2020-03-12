@@ -16,8 +16,8 @@ export default class DetailMain extends Component {
               <h1>{this.props.projectmain.title}</h1>
               <p>{this.props.projectmain.type}</p>
               <div>
-                <a href={this.props.projectmain.weblink}><button>VIEW LIVE</button></a>
-                <a href={this.props.projectmain.githublink}><button>VIEW CODE</button></a>
+                <a href={this.props.projectmain.weblink} target='blank'><button>VIEW LIVE</button></a>
+                <a href={this.props.projectmain.githublink} target='blank'><button>VIEW CODE</button></a>
               </div>
             </div>
           </div>

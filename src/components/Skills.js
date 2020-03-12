@@ -11,6 +11,7 @@ import rails from "../img/rails.svg";
 import postgres from "../img/postgres.svg";
 import mysql from "../img/mysql.svg";
 import firebase from "../img/firebase.svg";
+import mongodb from "../img/mongodb.svg";
 import wordpress from "../img/wordpress.svg";
 import php from "../img/php.svg";
 import git from "../img/git.svg";
@@ -36,6 +37,7 @@ const skills = [
     {icon: postgres, skillname: "PostgreSQL"},
     {icon: mysql, skillname: "MySQL"},
     {icon: firebase, skillname: "Firebase"},
+    {icon: mongodb, skillname: "MongoDB"},
     {icon: html, skillname: "HTML"},
     {icon: css, skillname: "CSS"},
     {icon: sass, skillname: "Sass"},
@@ -63,7 +65,7 @@ export default class Skills extends Component {
   render() {
     return (
       <section id="skills">
-        <h1>Skills + Tools</h1>
+        <h1><span className="highlight">Skills + Tools</span></h1>
         <div className="skills-wrapper">
           {this.skillList()}    
         </div>

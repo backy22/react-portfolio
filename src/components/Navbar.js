@@ -134,7 +134,7 @@ export default class Navbar extends Component {
 
   componentDidMount() {
     document.addEventListener('scroll', () => {
-      const isTop = window.scrollY < window.innerHeight;
+      const isTop = window.scrollY < window.innerHeight - 120;
       if (isTop !== this.state.isTop) {
         this.onScroll(isTop);
       }

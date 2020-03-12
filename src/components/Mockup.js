@@ -32,7 +32,7 @@ export default class Mockup extends Component {
   render() {
     return (
       <section className="mockup">
-        <h1>Mockup</h1>
+        <h1><span className="highlight">Mockup</span></h1>
         <p>{this.props.projectmockup.text}</p>
         {this.mockupLive()}
         {this.imgList()}

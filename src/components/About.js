@@ -10,7 +10,7 @@ export default class About extends Component {
   render() {
     return (
       <section id="about" className="wow bounceInLeft">
-        <h1>About me</h1>
+        <h1><span className="highlight">About me</span></h1>
         <div className="profile-wrapper">
           <div className="profile-image">
             <img src={profileImage} alt="profile"/>
