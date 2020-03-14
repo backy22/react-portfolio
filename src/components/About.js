@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import profileImage from "../img/profile-image.png";
 import WOW from "wowjs";
+import resume from '../img/Resume_AyaTsubakino.pdf';
 
 export default class About extends Component {
   componentDidMount() {
@@ -31,6 +32,9 @@ export default class About extends Component {
               <a href="mailto:aya.tsubakino@gmail.com?subject=I%20want%20to%20hire%20Aya&body=Hi,%20Aya"><span className="email">aya.tsubakino@gmail.com</span>
 </a>
             </p>
+            <div className="resume-button">
+              <a href={resume} target="blank"><button>VIEW RESUME</button></a>
+            </div>
           </div>
         </div>
       </section>

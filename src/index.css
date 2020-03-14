@@ -26,7 +26,7 @@ section {
   padding-top: 80px;
 }
 
-h1, h2 {
+h1, h2, h3 {
   font-family: 'dosis', sans-serif;
 }
 
@@ -106,8 +106,6 @@ header {
 
 .header-left {
   float: left;
-  display: flex;
-  align-items: center;
 }
 
 header button {
@@ -130,6 +128,8 @@ nav {
 
 nav ul {
   list-style: none;
+  margin: 0;
+  margin-top: 5px;
   
   display: -webkit-box;
   display: -moz-box;
@@ -166,7 +166,7 @@ button {
 
 @media screen and (max-width: 640px) {
   header {
-    padding: 0 10vw;
+    height: 4rem;
   }
 
   nav {
@@ -337,17 +337,32 @@ button {
   grid-gap: 30px;
 }
 
+.project-thumbnail {
+  background-color: #5ecbf5;
+  color: #ffffff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 .thumbnail {
-  transition: 0.3s;
+  overflow: hidden;
 }
 
-.thumbnail:hover {
-  border-radius: 30px;
+.project-thumbnail img {
+  transition: .3s ease-in-out;
 }
 
-.projects-wrapper h2 {
+.project-thumbnail img:hover {
+  transform: scale(1.1);
+}
+
+.skills {
+  padding: 5px;
+  font-size: 0.9em;
+}
+
+.projects-wrapper h3 {
   padding: 0;
-  margin-bottom: 0;
+  margin-bottom: 5px;
   margin-top: 10px;
 }
 
@@ -405,6 +420,10 @@ button {
   font-weight: 700;
 }
 
+.resume-button {
+  text-align: center;
+}
+
 @media screen and (max-width: 640px) {
   .profile-image, .profile-text {
     width: 100%;
@@ -425,7 +444,8 @@ button {
 
 /* footer */
 footer section {
-  margin-top: 0;
+  padding-top: 10px;
+  text-align: center;
 }
 
 footer h1 {
@@ -438,12 +458,8 @@ footer {
 }
 
 footer img {
-  margin-right: 10%;
+  margin: 10px 5%;
   width: 30px;
-}
-
-footer section {
-  margin-bottom: 0;
 }
 
 .copyright {
@@ -457,7 +473,7 @@ footer section {
   }
 
   .snslink a {
-    margin: 0 10%;
+    margin: 0 5%;
   }
 
   .snslink a img {

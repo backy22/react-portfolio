@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { HashLink as Link } from 'react-router-hash-link';
-import resume from '../img/Resume_AyaTsubakino.pdf';
 import styled from 'styled-components';
 
 const StyledMenu = styled.nav`
@@ -150,7 +149,6 @@ export default class Navbar extends Component {
       <header className={this.state.isTop ? 'white-header' : 'blue-header'}>
         <div className="header-left">
           <div className="logo"><Link to='/#homemain'>#AyaTsubakino</Link></div>
-          <div className="resume"><a href={resume} target="blank"><button>Resume</button></a></div>
         </div>
         <BurgerMenu />
         <nav className="pc">

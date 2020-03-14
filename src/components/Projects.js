@@ -8,14 +8,18 @@ import WOW from "wowjs";
 const Project = props => {
   return (
   <div className="project wow bounceInUp">
-    <a href={props.project.detaillink}><img className="thumbnail" src={props.project.thumbnail} alt="project thumbnail"/></a>
-    <h2 className="project-title">
+    <div className="project-thumbnail">
+      <div className="thumbnail">
+        <a href={props.project.detaillink}><img className="thumbnail" src={props.project.thumbnail} alt="project thumbnail"/></a>
+      </div>
+      <p className="skills">{props.project.skills}</p>
+    </div>
+    <h3 className="project-title">
       {props.project.title}
       <WebLink project={props.project} />
       <GithubLink project={props.project} />
-    </h2>
+    </h3>
     <div>{props.project.type}</div>
-    <p>{props.project.skills}</p>
   </div>
   );
 }
@@ -45,10 +49,10 @@ const GithubLink = props => {
 }
 
 const projects = [
-  {detaillink: "/givetake", thumbnail: givetakeThumbnail, title: "Give & Take App", weblink: "https://givetake-pro.web.app", githublink: "https://github.com/backy22/givetake", type: "React project", skills: "React, Redux, Material-UI, Firebase, Sketch, Mockup"},
-  {detaillink: "/projectscms", thumbnail: projectscmsThumbnail, title: "My Projects CMS", weblink: "https://ayatsubakino.com/archive/", githublink: "https://github.com/backy22/portfolio", type: "CMS & Responsive Design", skills: "PHP, MySQL, HTML, CSS, Responsive"},
-  {detaillink: "/sean", thumbnail: seanThumbnail, title: "Sean Connery's website", weblink: "https://ayatsubakino.com/webd100/finalassignment/", githublink: "https://github.com/backy22/web_tech1/tree/master/finalassignment", type: "Redesign", skills: "Wireframe, Mockup, Illustrator, Photoshop, HTML, CSS, JavaScript"},
-  {detaillink: "/tsubaki", thumbnail: tsubakiThumbnail, title: "Design Agent website", weblink: "", githublink: "", type: "Responsive design", skills: "Moodboard, Paper Prototyping, Mockup, Photoshop, Illustrator, XD"}
+  {detaillink: "/givetake", thumbnail: givetakeThumbnail, title: "GIVE & TAKE APP", weblink: "https://givetake-pro.web.app", githublink: "https://github.com/backy22/givetake", type: "Give & Take app is a react project with firebase as database, authentification and hosting. Main feature of this app is realtime chat.", skills: "React, Redux, Material-UI, Firebase, Sketch, Mockup"},
+  {detaillink: "/projectscms", thumbnail: projectscmsThumbnail, title: "MY PROJECTS CMS", weblink: "https://ayatsubakino.com/archive/", githublink: "https://github.com/backy22/portfolio", type: "This CMS is for management of my all projects, using PHP and MySQL. The client site is responsive.", skills: "PHP, MySQL, HTML, CSS, Responsive"},
+  {detaillink: "/sean", thumbnail: seanThumbnail, title: "SEAN CONNERY'S WEBSITE", weblink: "https://ayatsubakino.com/webd100/finalassignment/", githublink: "https://github.com/backy22/web_tech1/tree/master/finalassignment", type: "Sean Conney's webiste is a redesign project including research, wireframe, mockup and coding.", skills: "Wireframe, Mockup, Illustrator, Photoshop, HTML, CSS, JavaScript"},
+  {detaillink: "/tsubaki", thumbnail: tsubakiThumbnail, title: "DESIGN AGENT WEBSITE", weblink: "", githublink: "", type: "This project shows all design process I went through for the responsive design of the imaginary design agent.", skills: "Moodboard, Paper Prototyping, Mockup, Photoshop, Illustrator, XD"}
 ]
 
 export default class Projects extends Component {
