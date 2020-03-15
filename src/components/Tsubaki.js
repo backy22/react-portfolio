@@ -19,7 +19,9 @@ export default class Sean extends Component {
       weblink: "https://ayatsubakino.com/webd100/finalassignment/",
       mainimg: tsubakiMain 
     }
-    this.overview = "This project included creating a logo, branding identity and website for my fictional company, called “tsubaki.” This company serves web design and web development."
+    this.overview = {
+      text: "This project included creating a logo, branding identity and website for my fictional company, called “tsubaki.” This company serves web design and web development."
+    }
     this.projectmockup = {
       text: "Using a lot of yellow makes the website look cheerful along with active font. I made high fidelity mock-ups for mobile and desktop websites. ",
       mockuplink: "",

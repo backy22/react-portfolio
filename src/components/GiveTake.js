@@ -19,7 +19,9 @@ export default class GiveTake extends Component {
       githublink: "https://github.com/backy22/givetake",
       mainimg: givetakeMain 
     }
-    this.overview = "This is a personal project named 'give&take', which is the chatting app using react ×redux ×firebase. The concept of this application is similar with Craigslist, but this application will allow us to trade anything other than money. We are not motivated only by money, but also of the value the give and take of a relationship. I hope that this way of thinking will have an impact on our life style."
+    this.overview = {
+      text: "This is a personal project named 'give&take', which is the chatting app using react ×redux ×firebase. The concept of this application is similar with Craigslist, but this application will allow us to trade anything other than money. We are not motivated only by money, but also of the value the give and take of a relationship. I hope that this way of thinking will have an impact on our life style."
+    }
     this.projectmockup = {
       text: "I made the mockup using Sketch and Marvel. As the image below shows, the user can link to the user page, the topic page, the new topic page and the message list page after the login. You can check the clickable mockup from the link below",
       mockuplink: "",
@@ -52,7 +54,7 @@ export default class GiveTake extends Component {
         <Overview overview={this.overview} />
         <Mockup projectmockup={this.projectmockup} />
         <Product projectproduct={this.projectproduct}/>
-        <ProjectNav prevlink="" nextlink="projectscms"/>
+        <ProjectNav prevlink="studybuddies" nextlink="projectscms"/>
       </div>
     );
   }

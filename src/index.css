@@ -544,6 +544,9 @@ footer img {
 }
 
 /* overview */
+#overview img {
+  margin-top: 30px;
+}
 
 /* detail-logo */
 
