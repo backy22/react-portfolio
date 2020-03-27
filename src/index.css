@@ -147,8 +147,12 @@ nav li {
   font-size: 0.8em;
 }
 
-nav .active a, nav li a:hover {
+.white-header nav .active a, .white-header nav li a:hover {
   color: #5ecbf5;
+}
+
+.blue-header nav .active a, .blue-header nav li a:hover {
+  color: #000;
 }
 
 li a {
@@ -334,12 +338,11 @@ button {
 .projects-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 30px;
+  grid-gap: 60px;
 }
 
 .project-thumbnail {
-  background-color: #5ecbf5;
-  color: #ffffff;
+  color: #000;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -356,14 +359,22 @@ button {
 }
 
 .skills {
-  padding: 5px;
+  padding: 7px 15px;
   font-size: 0.9em;
 }
 
 .projects-wrapper h3 {
   padding: 0;
   margin-bottom: 5px;
-  margin-top: 10px;
+  margin-top: 18px;
+}
+
+.project-title {
+  display: flex;
+}
+
+.project-title div:first-child {
+   margin-right: auto;
 }
 
 .project-title a {
@@ -421,7 +432,11 @@ button {
 }
 
 .resume-button {
-  text-align: center;
+  text-align: left;
+}
+
+.resume-button button {
+  margin-left: 0;
 }
 
 @media screen and (max-width: 640px) {
@@ -440,6 +455,15 @@ button {
   .profile-text p {
     padding-top: 20px;
   }
+
+  .resume-button {
+    text-align: center;
+  }
+
+  .resume-button button {
+    margin: 15px;
+  }
+
 }
 
 /* footer */
@@ -457,9 +481,17 @@ footer {
   color: #ffffff;
 }
 
-footer img {
+.snsicon {
   margin: 10px 5%;
   width: 30px;
+}
+
+.snsicon > .cls-1 {
+  fill: #ffffff;
+}
+
+.snsicon:hover > .cls-1 {
+  fill: #000;
 }
 
 .copyright {
@@ -476,7 +508,7 @@ footer img {
     margin: 0 5%;
   }
 
-  .snslink a img {
+  .snsicon {
     margin: 0 auto;
   }
 }
@@ -579,7 +611,7 @@ footer img {
 
 /* project nav */
 .project-nav {
-  text-align: center;
+  overflow: hidden;
 }
 
 .project-nav .fas {
@@ -588,7 +620,27 @@ footer img {
 
 .project-nav a {
   text-decoration: none;
-  color: #000; 
+  color: #000;
+}
+
+.project-nav a i {
+  vertical-align: middle;
+}
+
+.left-arrow {
+  float: left;
+  width: 50%;
+  display: inline-block;
+  text-align: right;
+}
+
+.right-arrow {
+  float: right;
+  width: 50%;
+}
+
+.project-nav a:hover {
+  color: #5ecbf5;
 }
 
 .project-nav a.disabled {

@@ -46,7 +46,7 @@ export default class GiveTake extends Component {
         <DetailMain projectmain={this.projectmain}/>
         <Overview overview={this.overview} />
         <Product projectproduct={this.projectproduct}/>
-        <ProjectNav prevlink="" nextlink="givetake"/>
+        <ProjectNav prevproject="" prevlink="" nextlink="givetake" nextproject="Give & Take App"/>
       </div>
     );
   }

@@ -48,7 +48,7 @@ export default class Sean extends Component {
         <StyleGuide />
         <Mockup projectmockup={this.projectmockup} />
         <Product projectproduct={this.projectproduct} />
-        <ProjectNav prevlink="projectscms" nextlink="tsubaki"/>
+        <ProjectNav prevproject="My Projects CMS" prevlink="projectscms" nextlink="tsubaki" nextproject="Design Agent website" />
       </div>
     );
   }

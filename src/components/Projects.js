@@ -16,9 +16,11 @@ const Project = props => {
       <p className="skills">{props.project.skills}</p>
     </div>
     <h3 className="project-title">
-      {props.project.title}
-      <WebLink project={props.project} />
-      <GithubLink project={props.project} />
+      <div>{props.project.title}</div>
+      <div className="linkicons"> 
+        <WebLink project={props.project} />
+        <GithubLink project={props.project} />
+      </div>
     </h3>
     <div>{props.project.type}</div>
   </div>

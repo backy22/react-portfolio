@@ -37,7 +37,7 @@ export default class ProjectsCMS extends Component {
         <DetailMain projectmain={this.projectmain}/>
         <Overview overview={this.overview} />
         <Product projectproduct={this.projectproduct}/>
-       <ProjectNav prevlink="givetake" nextlink="sean"/>
+       <ProjectNav prevproject="Give & Take App" prevlink="givetake" nextlink="sean" nextproject="Sean Connery's website"/>
       </div>
     );
   }

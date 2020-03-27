@@ -43,7 +43,7 @@ export default class Sean extends Component {
         <Moodboard />
         <PaperPrototyping />
         <Mockup projectmockup={this.projectmockup} />
-        <ProjectNav prevlink="/sean" nextlink=""/>
+        <ProjectNav prevproject="Sean Connery's website" prevlink="/sean" nextlink=""/>
       </div>
     );
   }

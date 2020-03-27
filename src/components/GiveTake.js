@@ -54,7 +54,7 @@ export default class GiveTake extends Component {
         <Overview overview={this.overview} />
         <Mockup projectmockup={this.projectmockup} />
         <Product projectproduct={this.projectproduct}/>
-        <ProjectNav prevlink="studybuddies" nextlink="projectscms"/>
+        <ProjectNav prevproject="Study Buddies" prevlink="studybuddies" nextlink="projectscms" nextproject="My Projects CMS"/>
       </div>
     );
   }
