@@ -46,7 +46,7 @@ button {
 }
 
 button:hover {
-  background: #5ecbf5;
+  background: #222250;
   color: #ffffff;
 }
 
@@ -122,6 +122,12 @@ header button {
   color: #ffffff;
 }
 
+.blue-header .logo a:hover{
+  color: #222250;
+  transition: 0.3s;
+}
+
+
 nav {
   float: right;
 }
@@ -149,10 +155,12 @@ nav li {
 
 .white-header nav .active a, .white-header nav li a:hover {
   color: #5ecbf5;
+  transition: 0.3s;
 }
 
 .blue-header nav .active a, .blue-header nav li a:hover {
-  color: #000;
+  color: #222250;
+  transition: 0.3s;
 }
 
 li a {
@@ -356,6 +364,7 @@ button {
 
 .project-thumbnail img:hover {
   transform: scale(1.1);
+  transition: 0.3s;
 }
 
 .skills {
@@ -390,6 +399,8 @@ button {
 
 .linkicon:hover > .cls-1 {
   fill: #5ecbf5;
+  transform: translateY(-2px);
+  transition: 0.3s;
 }
 
 .projects-wrapper p {
@@ -491,7 +502,8 @@ footer {
 }
 
 .snsicon:hover > .cls-1 {
-  fill: #000;
+  fill: #222250;
+  transition: 0.3s;
 }
 
 .copyright {
@@ -641,6 +653,7 @@ footer {
 
 .project-nav a:hover {
   color: #5ecbf5;
+  transition: 0.3s;
 }
 
 .project-nav a.disabled {
