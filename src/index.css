@@ -153,12 +153,12 @@ nav li {
   font-size: 0.8em;
 }
 
-.white-header nav .active a, .white-header nav li a:hover {
+.white-header .pc .active a, .white-header .pc li a:hover {
   color: #5ecbf5;
   transition: 0.3s;
 }
 
-.blue-header nav .active a, .blue-header nav li a:hover {
+.blue-header .pc .active a, .blue-header .pc li a:hover {
   color: #222250;
   transition: 0.3s;
 }
@@ -179,6 +179,14 @@ button {
 @media screen and (max-width: 640px) {
   header {
     height: 4rem;
+  }
+
+  .header-left {
+    margin-top: 10px;
+  }
+
+  .blue-header .sp button div {
+    background: #ffffff;
   }
 
   nav {
@@ -204,16 +212,6 @@ button {
     font-size: 2em;
     margin: 0 auto;
     width: auto;
-  }
-
-  .ekxFrA {
-    top: 0;
-    right: 10vw;
-    margin: 0;
-  }
-
-  .ekxFrA:hover {
-    background: transparent;
   }
 
 }
@@ -659,4 +657,10 @@ footer {
 .project-nav a.disabled {
   pointer-events: none;
   color: #9e9e9ed1;
+}
+
+@media screen and (max-width: 640px) {
+  .project-nav {
+    font-size: 12px;
+  }
 }

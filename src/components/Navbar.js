@@ -29,6 +29,7 @@ const StyledMenu = styled.nav`
     @media (max-width: 576px) {
       font-size: 1.5rem;
       text-align: center;
+      color: #ffffff;
     }
 
     &:hover {
@@ -71,15 +72,17 @@ const StyledBurger = styled.button`
   cursor: pointer;
   padding: 0;
   z-index: 10;
+  margin: 0 15px;
 
-  &:focus {
+  &:focus, &:hover {
     outline: none;
+    background: transparent;
   }
 
   div {
     width: 2rem;
     height: 0.25rem;
-    background: black;
+    background: ${({ open }) => open ? '#ffffff' : '#222250'};
     border-radius: 10px;
     transition: all 0.3s linear;
     position: relative;
