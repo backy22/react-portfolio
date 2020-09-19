@@ -16,8 +16,8 @@ export default class Sean extends Component {
       title: "Sean Connery's website",
       type: "Redesign",
       skills: "Wireframe, Mockup, Illustrator, Photoshop, HTML, CSS, JavaScript",
-      weblink: "https://ayatsubakino.com/webd100/finalassignment/",
-      githublink: "https://github.com/backy22/web_tech1/tree/master/finalassignment",
+      weblink: "https://backy22.github.io/sean-connery/",
+      githublink: "https://github.com/backy22/sean-connery",
       mainimg: seanMain 
     }
     this.overview = {
@@ -30,8 +30,8 @@ export default class Sean extends Component {
     }
     this.projectproduct = {
       text: "In the front-end development, I made use of a Grid system.",
-      livelink: "https://ayatsubakino.com/webd100/finalassignment/",
-      codelink: "https://github.com/backy22/web_tech1/tree/master/finalassignment"
+      livelink: "https://backy22.github.io/sean-connery/",
+      codelink: "https://github.com/backy22/sean-connery"
     }
   }
 

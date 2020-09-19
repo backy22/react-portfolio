@@ -5,6 +5,7 @@ import sass from "../img/sass.svg";
 import js from "../img/js.svg";
 import jquery from "../img/jquery.svg";
 import react from "../img/react.svg";
+import vuejs from "../img/vuejs.svg";
 import nodejs from "../img/nodejs.svg";
 import bootstrap from "../img/bootstrap.svg";
 import rails from "../img/rails.svg";
@@ -30,6 +31,7 @@ const Skill = props => (
 
 const skills = [
     {icon: react, skillname: "React"},
+    {icon: vuejs, skillname: "Vue.js"},
     {icon: nodejs, skillname: "Node.js"},
     {icon: js, skillname: "JavaScript"},
     {icon: jquery, skillname: "jQuery"},

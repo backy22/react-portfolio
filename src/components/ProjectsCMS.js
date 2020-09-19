@@ -12,7 +12,7 @@ export default class ProjectsCMS extends Component {
       title: "My Projects CMS",
       type: "CMS & Responsive Design",
       skills: "PHP, MySQL, HTML, CSS, Responsive",
-      weblink: "https://ayatsubakino.com/archive/",
+      weblink: "https://backy22.github.io/html-portfolio/",
       githublink: "https://github.com/backy22/portfolio",
       mainimg: projectscmsMain 
     }
@@ -22,7 +22,7 @@ export default class ProjectsCMS extends Component {
     this.projectproduct = {
       text: ["In this video, I'll show you create and edit a new item on the CMS. Please feel free to go to the actual website and check my all project!",
               <div className="video demo"><iframe width="853" height="480" src="https://www.youtube.com/embed/K0iUtd3Ah-U?&autoplay=1&rel=0&loop=1&playlist=K0iUtd3Ah-U" frameBorder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowFullScreen title="product video"></iframe></div>],
-      livelink: "https://ayatsubakino.com/archive/",
+      livelink: "https://backy22.github.io/html-portfolio/",
       codelink: "https://github.com/backy22/portfolio"
     }
   }
