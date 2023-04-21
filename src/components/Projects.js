@@ -4,6 +4,8 @@ import givetakeThumbnail from "../img/givetake-thumbnail.png";
 import projectscmsThumbnail from "../img/projectscms-thumbnail.png";
 import seanThumbnail from "../img/sean-thumbnail.png";
 import tsubakiThumbnail from "../img/tsubaki-thumbnail.png";
+import animalDetectionThumbnail from "../img/animal_result.png";
+import weatherThumbnail from "../img/weather-thumbnail.jpeg";
 import WOW from "wowjs";
 
 const Project = props => {
@@ -11,7 +13,8 @@ const Project = props => {
   <div className="project wow bounceInUp">
     <div className="project-thumbnail">
       <div className="thumbnail">
-        <a href={props.project.detaillink}><img className="thumbnail" src={props.project.thumbnail} alt="project thumbnail"/></a>
+        {/* <a href={props.project.detaillink}><img className="thumbnail" src={props.project.thumbnail} alt="project thumbnail"/></a> */}
+        <img src={props.project.thumbnail} alt="project thumbnail"/>
       </div>
       <p className="skills">{props.project.skills}</p>
     </div>
@@ -52,11 +55,13 @@ const GithubLink = props => {
 }
 
 const projects = [
-  {detaillink: "/studybuddies", thumbnail: studybuddiesThumbnail, title: "STUDY BUDDIES", weblink: "https://mern-study-buddies.herokuapp.com/", githublink: "https://github.com/backy22/study-buddies", type: "Study Buddies is a full stack project with MongoDB, Express, React, Node.js, which is called MERN stack.", skills: "MongoDB, Express, React, Node.js, Redux, Heroku"},
-  {detaillink: "/givetake", thumbnail: givetakeThumbnail, title: "GIVE & TAKE APP", weblink: "https://givetake-pro.web.app", githublink: "https://github.com/backy22/givetake", type: "Give & Take app is a react project with firebase as database, authentification and hosting. Main feature of this app is realtime chat.", skills: "React, Redux, Material-UI, Firebase, Sketch, Mockup"},
-  {detaillink: "/projectscms", thumbnail: projectscmsThumbnail, title: "MY PROJECTS CMS", weblink: "https://backy22.github.io/html-portfolio/", githublink: "https://github.com/backy22/portfolio", type: "This CMS is for management of my all projects, using PHP and MySQL. The client site is responsive.", skills: "PHP, MySQL, HTML, CSS, Responsive"},
-  {detaillink: "/sean", thumbnail: seanThumbnail, title: "SEAN CONNERY'S WEBSITE", weblink: "https://backy22.github.io/sean-connery/", githublink: "https://github.com/backy22/sean-connery", type: "Sean Conney's webiste is a redesign project including research, wireframe, mockup and coding.", skills: "Wireframe, Mockup, Illustrator, Photoshop, HTML, CSS, JavaScript"},
-  {detaillink: "/tsubaki", thumbnail: tsubakiThumbnail, title: "DESIGN AGENT WEBSITE", weblink: "", githublink: "", type: "This project shows all design process I went through for the responsive design of the imaginary design agent.", skills: "Moodboard, Paper Prototyping, Mockup, Photoshop, Illustrator, XD"}
+  // {detaillink: "/studybuddies", thumbnail: studybuddiesThumbnail, title: "STUDY BUDDIES", weblink: "https://mern-study-buddies.herokuapp.com/", githublink: "https://github.com/backy22/study-buddies", type: "Study Buddies is a full stack project with MongoDB, Express, React, Node.js, which is called MERN stack.", skills: "MongoDB, Express, React, Node.js, Redux, Heroku"},
+  // {detaillink: "/givetake", thumbnail: givetakeThumbnail, title: "GIVE & TAKE APP", weblink: "https://givetake-pro.web.app", githublink: "https://github.com/backy22/givetake", type: "Give & Take app is a react project with firebase as database, authentification and hosting. Main feature of this app is realtime chat.", skills: "React, Redux, Material-UI, Firebase, Sketch, Mockup"},
+  // {detaillink: "/projectscms", thumbnail: projectscmsThumbnail, title: "MY PROJECTS CMS", weblink: "https://backy22.github.io/html-portfolio/", githublink: "https://github.com/backy22/portfolio", type: "This CMS is for management of my all projects, using PHP and MySQL. The client site is responsive.", skills: "PHP, MySQL, HTML, CSS, Responsive"},
+  // {detaillink: "/sean", thumbnail: seanThumbnail, title: "SEAN CONNERY'S WEBSITE", weblink: "https://backy22.github.io/sean-connery/", githublink: "https://github.com/backy22/sean-connery", type: "Sean Conney's webiste is a redesign project including research, wireframe, mockup and coding.", skills: "Wireframe, Mockup, Illustrator, Photoshop, HTML, CSS, JavaScript"},
+  // {detaillink: "/tsubaki", thumbnail: tsubakiThumbnail, title: "DESIGN AGENT WEBSITE", weblink: "", githublink: "", type: "This project shows all design process I went through for the responsive design of the imaginary design agent.", skills: "Moodboard, Paper Prototyping, Mockup, Photoshop, Illustrator, XD"},
+  {thumbnail: animalDetectionThumbnail, title: "ANIMAL DETECTION", weblink: "https://animal-detection.onrender.com/", githublink: "https://github.com/MingjiZhu/AnimalDetection", type: "This project is a simple animal detection app using YOLOv8 and OpenCV.", skills: "YOLOv8, OpenCV, Python, Flask, Render"},
+  {thumbnail: weatherThumbnail, title: "Weather App", weblink: "https://master.d25q4j1ouiximk.amplifyapp.com/", githublink: "", type: "This project is a simple weather app using OpenWeatherMap API.", skills: "OpenWeatherMap API, HTML, CSS, JavaScript"},
 ]
 
 export default class Projects extends Component {
