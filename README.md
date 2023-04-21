@@ -1,3 +1,6 @@
 # Portfolio
-# Live
-https://ayatsubakino.com/
+```
+npm i
+npm start
+```
+# [Live](https://ayatsubakino.com/)
