@@ -18,13 +18,13 @@ export default class About extends Component {
           </div>
           <div className="profile-text">
             <p>
-              <span>&#129306;</span>Hi, my name is <span className="logo">#AyaTsubakino</span>! I’m a Full-Stack developer passionate about larning new technologies located in Toronto🇨🇦, born and raised in Japan🇯🇵
+              <span>&#129306;</span>Hi, my name is Aya! I’m a Full-Stack developer passionate about learning new technologies located in Toronto🇨🇦, born and raised in Japan🇯🇵
               <br />
               <br />
-              I'm working for a Canadian company for 2 years mainly developing React-based Web applications for the clients. Also, I have 2 years experience as a back-end developer mainly using Ruby on Rails in the Japanese company which provides video on demand platform💪
+              I've been working for multiple clients in Canada and Japan for 5 years including React-based Web applications, npm library, and Rails-based video on demand platform💪
               <br />
               <br />
-              I am <span className="highlight">goal-oriented</span>, good at <span className="highlight">adapting to new environment</span>, and passionate about creating <span className="highlight">unique and functional web application</span>&#128525;
+              I am <span className="highlight">goal-oriented</span>, good at <span className="highlight">adapting to new environment</span>, and love <span className="highlight">coding and tech industry</span>&#128525;
               <br />
               <br />
               Please reach me at

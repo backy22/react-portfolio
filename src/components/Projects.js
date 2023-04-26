@@ -6,6 +6,9 @@ import seanThumbnail from "../img/sean-thumbnail.png";
 import tsubakiThumbnail from "../img/tsubaki-thumbnail.png";
 import animalDetectionThumbnail from "../img/animal_result.png";
 import weatherThumbnail from "../img/weather-thumbnail.jpeg";
+import orgdesignThumbnail from "../img/orgdesign-thumbnail.png";
+import jibseThumbnail from "../img/jibse-thumbnail.png";
+import rooknrollThumbnail from "../img/rooknroll-thumbnail.png";
 import WOW from "wowjs";
 
 const Project = props => {
@@ -25,7 +28,10 @@ const Project = props => {
         <GithubLink project={props.project} />
       </div>
     </h3>
-    <div>{props.project.type}</div>
+    <div>
+      {props.project.type}
+      {props.project.moredetail && <p><a href={props.project.moredetail} target="blank">&gt;&gt;More details</a></p>}
+    </div>
   </div>
   );
 }
@@ -60,8 +66,11 @@ const projects = [
   // {detaillink: "/projectscms", thumbnail: projectscmsThumbnail, title: "MY PROJECTS CMS", weblink: "https://backy22.github.io/html-portfolio/", githublink: "https://github.com/backy22/portfolio", type: "This CMS is for management of my all projects, using PHP and MySQL. The client site is responsive.", skills: "PHP, MySQL, HTML, CSS, Responsive"},
   // {detaillink: "/sean", thumbnail: seanThumbnail, title: "SEAN CONNERY'S WEBSITE", weblink: "https://backy22.github.io/sean-connery/", githublink: "https://github.com/backy22/sean-connery", type: "Sean Conney's webiste is a redesign project including research, wireframe, mockup and coding.", skills: "Wireframe, Mockup, Illustrator, Photoshop, HTML, CSS, JavaScript"},
   // {detaillink: "/tsubaki", thumbnail: tsubakiThumbnail, title: "DESIGN AGENT WEBSITE", weblink: "", githublink: "", type: "This project shows all design process I went through for the responsive design of the imaginary design agent.", skills: "Moodboard, Paper Prototyping, Mockup, Photoshop, Illustrator, XD"},
-  {thumbnail: animalDetectionThumbnail, title: "ANIMAL DETECTION", weblink: "https://animal-detection.onrender.com/", githublink: "https://github.com/MingjiZhu/AnimalDetection", type: "This project is a simple animal detection app using YOLOv8 and OpenCV.", skills: "YOLOv8, OpenCV, Python, Flask, Render"},
+  {thumbnail: animalDetectionThumbnail, title: "Animal Detection", weblink: "https://animal-detection.onrender.com/", githublink: "https://github.com/backy22/AnimalDetection", type: "This project is a simple animal detection app using YOLOv8 and OpenCV.", skills: "YOLOv8, OpenCV, Python, Flask, Render"},
   {thumbnail: weatherThumbnail, title: "Weather App", weblink: "https://master.d25q4j1ouiximk.amplifyapp.com/", githublink: "", type: "This project is a simple weather app using OpenWeatherMap API.", skills: "OpenWeatherMap API, HTML, CSS, JavaScript"},
+  {thumbnail: orgdesignThumbnail, title: "OrgDesign", weblink: "https://org-design.vercel.app", githublink: "", type: "OrgDesign is a platform where any organizations can create a token and use it effectively.", moredetail: "https://drive.google.com/file/d/1duKjZee06MpD9VAXsZ6dpKk8twxoaCaN/view?usp=sharing", skills: "Firebase, Ethers.js, Openzeppelin, Solidity, Nextjs, Mui"},
+  {thumbnail: jibseThumbnail, title: "Jibse", weblink: "https://jibse.vercel.app/", githublink: "https://github.com/backy22/Jibse", type: "Jibse is a dapp that helps tenants and owners make a worry-free lease contract without knowing each other.", moredetail: "https://devpost.com/software/jibse?ref_content=my-projects-tab&ref_feature=my_projects", skills: "Solidity, React, Ethers.js, Nextjs, Tailwind CSS"},
+  {thumbnail: rooknrollThumbnail, title: "RooknRoll", weblink: "https://beta.rooknroll.com/", type: "Customized chess game where only pieces along with the rolled 3D dice can be moved. guest name: test or test1, password: password", skills: "JavaScript, ThreeJs, ExpressJs, MySQL, WebSocket"}
 ]
 
 export default class Projects extends Component {
