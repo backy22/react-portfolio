@@ -9,6 +9,7 @@ import weatherThumbnail from "../img/weather-thumbnail.jpeg";
 import orgdesignThumbnail from "../img/orgdesign-thumbnail.png";
 import jibseThumbnail from "../img/jibse-thumbnail.png";
 import rooknrollThumbnail from "../img/rooknroll-thumbnail.png";
+import webrtcGroupChatThumbnail from "../img/webrtc_group_chat.png";
 import WOW from "wowjs";
 
 const Project = props => {
@@ -70,7 +71,8 @@ const projects = [
   {thumbnail: weatherThumbnail, title: "Weather App", weblink: "https://master.d25q4j1ouiximk.amplifyapp.com/", githublink: "", type: "This project is a simple weather app using OpenWeatherMap API.", skills: "OpenWeatherMap API, HTML, CSS, JavaScript"},
   {thumbnail: orgdesignThumbnail, title: "OrgDesign", weblink: "https://org-design.vercel.app", githublink: "", type: "OrgDesign is a platform where any organizations can create a token and use it effectively.", moredetail: "https://drive.google.com/file/d/1duKjZee06MpD9VAXsZ6dpKk8twxoaCaN/view?usp=sharing", skills: "Firebase, Ethers.js, Openzeppelin, Solidity, Nextjs, Mui"},
   {thumbnail: jibseThumbnail, title: "Jibse", weblink: "https://jibse.vercel.app/", githublink: "https://github.com/backy22/Jibse", type: "Jibse is a dapp that helps tenants and owners make a worry-free lease contract without knowing each other.", moredetail: "https://devpost.com/software/jibse?ref_content=my-projects-tab&ref_feature=my_projects", skills: "Solidity, React, Ethers.js, Nextjs, Tailwind CSS"},
-  {thumbnail: rooknrollThumbnail, title: "RooknRoll", weblink: "https://beta.rooknroll.com/", type: "Customized chess game where only pieces along with the rolled 3D dice can be moved. guest name: test or test1, password: password", skills: "JavaScript, ThreeJs, ExpressJs, MySQL, WebSocket"}
+  {thumbnail: rooknrollThumbnail, title: "RooknRoll", weblink: "https://beta.rooknroll.com/", type: "Customized chess game where only pieces along with the rolled 3D dice can be moved. guest name: test or test1, password: password", skills: "JavaScript, ThreeJs, ExpressJs, MySQL, WebSocket"},
+  {thumbnail: webrtcGroupChatThumbnail, title: "WebRTC group chat", weblink: "https://webrtc-group-chat-09u6.onrender.com/", githublink: "https://github.com/backy22/webrtc-group-chat", type: "This project is a realtime video chat platform where users can video chat, record, and text chat.", skills: "WebRTC, React, ExpressJs, SimplePeer, WebSocket"}
 ]
 
 export default class Projects extends Component {
