@@ -9,12 +9,80 @@ interface StyledMenuProps {
 interface MenuProps {
   open: boolean;
   setOpen: (open: boolean) => void;
+  isDarkMode: boolean;
+  toggleTheme: () => void;
 }
 
 interface BurgerProps {
   open: boolean;
   setOpen: (open: boolean) => void;
 }
+
+interface NavbarProps {
+  isDarkMode: boolean;
+  toggleTheme: () => void;
+}
+
+const StyledThemeToggle = styled.button<{ isDarkMode: boolean }>`
+  background: transparent;
+  border: 2px solid #343078;
+  border-radius: 30px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  position: relative;
+  width: 50px;
+  height: 24px;
+  margin-left: 20px;
+  margin-top: 0px;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #222250;
+  }
+
+  &::after {
+    content: '';
+    background: #343078;
+    border-radius: 50%;
+    position: absolute;
+    left: ${({ isDarkMode }) => isDarkMode ? '26px' : '4px'};
+    height: 20px;
+    width: 20px;
+    transition: all 0.3s linear;
+  }
+
+  .icon {
+    color: #343078;
+    font-size: 14px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    
+    &.sun {
+      left: 6px;
+    }
+    
+    &.moon {
+      right: 6px;
+    }
+  }
+
+  @media (max-width: 576px) {
+    margin: 20px auto;
+    position: relative;
+    top: auto;
+    right: auto;
+  }
+`;
+
+const ThemeToggle: React.FC<{ isDarkMode: boolean; toggleTheme: () => void }> = ({ isDarkMode, toggleTheme }) => (
+  <StyledThemeToggle onClick={toggleTheme} isDarkMode={isDarkMode} aria-label="Toggle theme">
+    <span className="icon sun">☀️</span>
+    <span className="icon moon">🌙</span>
+  </StyledThemeToggle>
+);
 
 const StyledMenu = styled.nav<StyledMenuProps>`
   display: flex;
@@ -28,6 +96,13 @@ const StyledMenu = styled.nav<StyledMenuProps>`
 
   @media (max-width: 576px) {
     width: 100%;
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-align: center;
   }
 
   a {
@@ -52,23 +127,16 @@ const StyledMenu = styled.nav<StyledMenuProps>`
   }
 `;
 
-const Menu = ({ open, setOpen }: MenuProps) => {
+const Menu = ({ open, setOpen, isDarkMode, toggleTheme }: MenuProps) => {
   return (
     <StyledMenu open={open} onClick={() => setOpen(!open)}>
       <ul>
-        <li>
-          <Link to="/#homemain">Home</Link>
-        </li>
-        <li>
-          <Link smooth to="/#skills">Skills</Link>
-        </li>
-        <li>
-          <Link smooth to="/#projects">Projects</Link>
-        </li>
-        <li>
-          <Link smooth to="/#about">About</Link>
-        </li>
+        <li><Link to="/#homemain">Home</Link></li>
+        <li><Link smooth to="/#skills">Skills</Link></li>
+        <li><Link smooth to="/#projects">Projects</Link></li>
+        <li><Link smooth to="/#about">About</Link></li>
       </ul>
+      <ThemeToggle isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
     </StyledMenu>
   );
 };
@@ -127,19 +195,19 @@ const Burger = ({ open, setOpen }: BurgerProps) => {
   );
 };
 
-const BurgerMenu = () => {
+const BurgerMenu = ({ isDarkMode, toggleTheme }: { isDarkMode: boolean; toggleTheme: () => void }) => {
   const [open, setOpen] = useState(false);
   const node = useRef<HTMLDivElement>(null);
   
   return (
     <div ref={node} className="sp">
       <Burger open={open} setOpen={setOpen} />
-      <Menu open={open} setOpen={setOpen} />
+      <Menu open={open} setOpen={setOpen} isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
     </div>
   );
 };
 
-const Navbar = () => {
+const Navbar: React.FC<NavbarProps> = ({ isDarkMode, toggleTheme }) => {
   const [isTop, setIsTop] = useState(true);
 
   useEffect(() => {
@@ -159,21 +227,14 @@ const Navbar = () => {
       <div className="header-left">
         <div className="logo"><Link to='/#homemain'>#AyaTsubakino</Link></div>
       </div>
-      <BurgerMenu />
+      <BurgerMenu isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
       <nav className="pc">
         <ul>
-          <li>
-            <Link to="/#homemain">Home</Link>
-          </li>
-          <li>
-            <Link smooth to="/#skills">Skills</Link>
-          </li>
-          <li>
-            <Link smooth to="/#projects">Projects</Link>
-          </li>
-          <li>
-            <Link smooth to="/#about">About</Link>
-          </li>
+          <li><Link to="/#homemain">Home</Link></li>
+          <li><Link smooth to="/#skills">Skills</Link></li>
+          <li><Link smooth to="/#projects">Projects</Link></li>
+          <li><Link smooth to="/#about">About</Link></li>
+          <li><ThemeToggle isDarkMode={isDarkMode} toggleTheme={toggleTheme} /></li>
         </ul>
       </nav>
     </header>
