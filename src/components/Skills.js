@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import html from "../img/html.svg";
 import css from "../img/css.svg";
 import sass from "../img/sass.svg";
@@ -59,25 +59,25 @@ const skills = [
     // {icon: aftereffect, skillname: "After Effects"}
   ];
 
-export default class Skills extends Component {
-  componentDidMount() {
-		new WOW.WOW().init();
-	}
+const Skills = () => {
+  useEffect(() => {
+    new WOW.WOW().init();
+  }, []);
 
-  skillList() {
-    return skills.map(skill => {
-      return <Skill skill={skill} />;
+  const skillList = () => {
+    return skills.map((skill, index) => {
+      return <Skill key={index} skill={skill} />;
     })
   }
 
-  render() {
-    return (
-      <section id="skills">
-        <h1><span className="highlight">Skills + Tools</span></h1>
-        <div className="skills-wrapper">
-          {this.skillList()}    
-        </div>
-      </section>
-    );
-  }
+  return (
+    <section id="skills">
+      <h1><span className="highlight">Skills + Tools</span></h1>
+      <div className="skills-wrapper">
+        {skillList()}    
+      </div>
+    </section>
+  );
 }
+
+export default Skills;

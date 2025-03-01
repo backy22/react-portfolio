@@ -10,8 +10,10 @@ body {
 }
 
 @font-face {
-  font-family: 'dosis';
-  src: url('/font/Dosis-VariableFont.ttf');
+  font-family: 'Dosis';
+  src: url('./fonts/Dosis-VariableFont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
 img {
@@ -219,7 +221,10 @@ button {
 
 /* home main */
 .homemain {
-  display: table;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 85vh;
   width: 60vw;
 }
@@ -249,11 +254,8 @@ button {
 }
 
 .hand {
-  display: inline-block;
   margin: 0;
-  -webkit-animation: wiggle 1s infinite;
-  -moz-animation: wiggle 1s infinite;
-  animation: wiggle 1s infinite;
+  display: inline;
 }
 
 @keyframes wiggle {

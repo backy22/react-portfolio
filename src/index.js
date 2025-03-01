@@ -1,6 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './index.css';
 import App from './App';
 import StudyBuddies from "./components/StudyBuddies";
@@ -11,19 +11,21 @@ import Tsubaki from "./components/Tsubaki";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
+const root = createRoot(document.getElementById('root'));
 
-const routing = (
-  <Router>
-    <Navbar />
-    <div>
-      <Route exact path="/" component={App} />
-      <Route path="/studybuddies" component={StudyBuddies} />
-      <Route path="/givetake" component={GiveTake} />
-      <Route path="/projectscms" component={ProjectsCMS} />
-      <Route path="/sean" component={Sean} />
-      <Route path="/tsubaki" component={Tsubaki} />
-    </div>
-    <Footer />
-  </Router>
-)
-ReactDOM.render(routing, document.getElementById('root'))
+root.render(
+  <React.StrictMode>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/studybuddies" element={<StudyBuddies />} />
+        <Route path="/givetake" element={<GiveTake />} />
+        <Route path="/projectscms" element={<ProjectsCMS />} />
+        <Route path="/sean" element={<Sean />} />
+        <Route path="/tsubaki" element={<Tsubaki />} />
+      </Routes>
+      <Footer />
+    </Router>
+  </React.StrictMode>
+);

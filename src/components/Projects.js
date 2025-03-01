@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import studybuddiesThumbnail from "../img/studybuddies-thumbnail.png";
-import givetakeThumbnail from "../img/givetake-thumbnail.png";
-import projectscmsThumbnail from "../img/projectscms-thumbnail.png";
-import seanThumbnail from "../img/sean-thumbnail.png";
-import tsubakiThumbnail from "../img/tsubaki-thumbnail.png";
+import React, { useEffect } from 'react';
+// import studybuddiesThumbnail from "../img/studybuddies-thumbnail.png";
+// import givetakeThumbnail from "../img/givetake-thumbnail.png";
+// import projectscmsThumbnail from "../img/projectscms-thumbnail.png";
+// import seanThumbnail from "../img/sean-thumbnail.png";
+// import tsubakiThumbnail from "../img/tsubaki-thumbnail.png";
 import animalDetectionThumbnail from "../img/animal_result.png";
 import weatherThumbnail from "../img/weather-thumbnail.jpeg";
 import orgdesignThumbnail from "../img/orgdesign-thumbnail.png";
@@ -14,26 +14,26 @@ import WOW from "wowjs";
 
 const Project = props => {
   return (
-  <div className="project wow bounceInUp">
-    <div className="project-thumbnail">
-      <div className="thumbnail">
-        {/* <a href={props.project.detaillink}><img className="thumbnail" src={props.project.thumbnail} alt="project thumbnail"/></a> */}
-        <img src={props.project.thumbnail} alt="project thumbnail"/>
+    <div className="project wow bounceInUp">
+      <div className="project-thumbnail">
+        <div className="thumbnail">
+          {/* <a href={props.project.detaillink}><img className="thumbnail" src={props.project.thumbnail} alt="project thumbnail"/></a> */}
+          <img src={props.project.thumbnail} alt="project thumbnail"/>
+        </div>
+        <p className="skills">{props.project.skills}</p>
       </div>
-      <p className="skills">{props.project.skills}</p>
-    </div>
-    <h3 className="project-title">
-      <div>{props.project.title}</div>
-      <div className="linkicons"> 
-        <WebLink project={props.project} />
-        <GithubLink project={props.project} />
+      <h3 className="project-title">
+        <div>{props.project.title}</div>
+        <div className="linkicons"> 
+          <WebLink project={props.project} />
+          <GithubLink project={props.project} />
+        </div>
+      </h3>
+      <div>
+        {props.project.type}
+        {props.project.moredetail && <p><a href={props.project.moredetail} target="blank">&gt;&gt;More details</a></p>}
       </div>
-    </h3>
-    <div>
-      {props.project.type}
-      {props.project.moredetail && <p><a href={props.project.moredetail} target="blank">&gt;&gt;More details</a></p>}
     </div>
-  </div>
   );
 }
 
@@ -75,25 +75,25 @@ const projects = [
   {thumbnail: webrtcGroupChatThumbnail, title: "WebRTC group chat", weblink: "https://webrtc-group-chat-09u6.onrender.com/", githublink: "https://github.com/backy22/webrtc-group-chat", type: "This project is a realtime video chat platform where users can video chat, record, and text chat.", skills: "WebRTC, React, ExpressJs, SimplePeer, WebSocket"}
 ]
 
-export default class Projects extends Component {
-  componentDidMount() {
-		new WOW.WOW().init();
-	}
+const Projects = () => {
+  useEffect(() => {
+    new WOW.WOW().init();
+  }, []);
 
-  projectList() {
-    return projects.map(project => {
-      return <Project project={project} />;
+  const projectList = () => {
+    return projects.map((project, index) => {
+      return <Project key={index} project={project} />;
     })
   }
 
-  render() {
-    return (
-      <section id="projects">
-        <h1><span className="highlight">Projects</span></h1>
-        <div className="projects-wrapper">
-          {this.projectList()}
-        </div>
-      </section>
-    );
-  }
+  return (
+    <section id="projects">
+      <h1><span className="highlight">Projects</span></h1>
+      <div className="projects-wrapper">
+        {projectList()}
+      </div>
+    </section>
+  );
 }
+
+export default Projects;
