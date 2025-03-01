@@ -9,20 +9,40 @@ import Mockup from "./Mockup";
 import ProjectNav from "./ProjectNav";
 import tsubakiMain from "../img/tsubaki-main.png";
 
-const Tsubaki = () => {
-  const projectmain = {
+interface ProjectMain {
+  title: string;
+  type: string;
+  skills: string;
+  weblink: string;
+  githublink: string;
+  mainimg: string;
+}
+
+interface OverviewData {
+  text: string;
+}
+
+interface ProjectMockup {
+  text: string;
+  mockuplink: string;
+  youtubelinks: string[];
+}
+
+const Tsubaki: React.FC = () => {
+  const projectmain: ProjectMain = {
     title: "Design Agent website",
     type: "Responsive design",
     skills: "Moodboard, Paper Prototyping, Mockup, Photoshop, Illustrator, XD",
     weblink: "https://ayatsubakino.com/webd100/finalassignment/",
+    githublink: "",
     mainimg: tsubakiMain 
   };
 
-  const overview = {
+  const overview: OverviewData = {
     text: 'This project included creating a logo, branding identity and website for my fictional company, called "tsubaki." This company serves web design and web development.'
   };
 
-  const projectmockup = {
+  const projectmockup: ProjectMockup = {
     text: "Using a lot of yellow makes the website look cheerful along with active font. I made high fidelity mock-ups for mobile and desktop websites. ",
     mockuplink: "",
     youtubelinks: ['WGBAfsfIAiY','5JyUjQvLiK8']
@@ -46,4 +66,4 @@ const Tsubaki = () => {
   );
 }
 
-export default Tsubaki;
+export default Tsubaki; 

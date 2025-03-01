@@ -1,12 +1,31 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, ReactNode } from 'react';
 import DetailMain from "./DetailMain";
 import Overview from "./Overview";
 import Product from "./Product";
 import ProjectNav from "./ProjectNav";
 import projectscmsMain from "../img/projectscms-main.png";
 
-const ProjectsCMS = () => {
-  const projectmain = {
+interface ProjectMain {
+  title: string;
+  type: string;
+  skills: string;
+  weblink: string;
+  githublink: string;
+  mainimg: string;
+}
+
+interface OverviewData {
+  text: string;
+}
+
+interface ProjectProduct {
+  text: ReactNode[];
+  livelink: string;
+  codelink: string;
+}
+
+const ProjectsCMS: React.FC = () => {
+  const projectmain: ProjectMain = {
     title: "My Projects CMS",
     type: "CMS & Responsive Design",
     skills: "PHP, MySQL, HTML, CSS, Responsive",
@@ -15,11 +34,11 @@ const ProjectsCMS = () => {
     mainimg: projectscmsMain 
   };
 
-  const overview = {
+  const overview: OverviewData = {
     text: "I developed this website to show every project I worked on from 2018 to 2020. I can manage all information including image on the CMS made by PHP and the data is stored in MySQL. I used CSS Grid on front-end webiste and it is responsive."
   };
 
-  const projectproduct = {
+  const projectproduct: ProjectProduct = {
     text: ["In this video, I'll show you create and edit a new item on the CMS. Please feel free to go to the actual website and check my all project!",
             <div key="demo" className="video demo">
               <iframe 
@@ -50,4 +69,4 @@ const ProjectsCMS = () => {
   );
 }
 
-export default ProjectsCMS;
+export default ProjectsCMS; 

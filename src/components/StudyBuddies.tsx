@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, ReactNode } from 'react';
 import DetailMain from "./DetailMain";
 import Overview from "./Overview";
 import Product from "./Product";
@@ -6,8 +6,28 @@ import ProjectNav from "./ProjectNav";
 import studybuddiesMain from "../img/studybuddies-main.png";
 import studybuddiesStructure from "../img/studybuddies-structure.png";
 
-const StudyBuddies = () => {
-  const projectmain = {
+interface ProjectMain {
+  title: string;
+  type: string;
+  skills: string;
+  weblink: string;
+  githublink: string;
+  mainimg: string;
+}
+
+interface OverviewData {
+  text: string;
+  img?: string;
+}
+
+interface ProjectProduct {
+  text: ReactNode[];
+  livelink: string;
+  codelink: string;
+}
+
+const StudyBuddies: React.FC = () => {
+  const projectmain: ProjectMain = {
     title: "Study Buddies",
     type: "MERN stack project",
     skills: "MongoDB, Express, React, Node.js, Redux, Heroku",
@@ -16,12 +36,12 @@ const StudyBuddies = () => {
     mainimg: studybuddiesMain 
   };
 
-  const overview = {
+  const overview: OverviewData = {
     text: "Study Buddies is the recent personal project where you can organize and find study groups. It's similar with Meetup. I applied the web development framework called 'MERN stack', which includes MongoDB(a document-based open source database), Express(a web application framework for Node.js), React(a JavaScript front-end library for building user interfaces), Node.js(JavaScript run-time environment that executes JavaScript code on a server). Besides, Bootstarp(CSS framework), Heroku(Cloud server) and Redux(JavaScript library to manage state) are applied.",
     img: studybuddiesStructure
   };
 
-  const projectproduct = {
+  const projectproduct: ProjectProduct = {
     text: ["This application consists of these functions;", 
           <ul key="studybuddies">
             <li>Signin / login / logout</li>
@@ -49,4 +69,4 @@ const StudyBuddies = () => {
   );
 }
 
-export default StudyBuddies;
+export default StudyBuddies; 

@@ -1,8 +1,22 @@
-import React, { Component } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { HashLink as Link } from 'react-router-hash-link';
 import styled from 'styled-components';
 
-const StyledMenu = styled.nav`
+interface StyledMenuProps {
+  open: boolean;
+}
+
+interface MenuProps {
+  open: boolean;
+  setOpen: (open: boolean) => void;
+}
+
+interface BurgerProps {
+  open: boolean;
+  setOpen: (open: boolean) => void;
+}
+
+const StyledMenu = styled.nav<StyledMenuProps>`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -13,8 +27,8 @@ const StyledMenu = styled.nav`
   transition: transform 0.3s ease-in-out;
 
   @media (max-width: 576px) {
-      width: 100%;
-    }
+    width: 100%;
+  }
 
   a {
     font-size: 2rem;
@@ -36,9 +50,9 @@ const StyledMenu = styled.nav`
       color: #343078;
     }
   }
-`
+`;
 
-const Menu = ({ open, setOpen }) => {
+const Menu = ({ open, setOpen }: MenuProps) => {
   return (
     <StyledMenu open={open} onClick={() => setOpen(!open)}>
       <ul>
@@ -56,10 +70,10 @@ const Menu = ({ open, setOpen }) => {
         </li>
       </ul>
     </StyledMenu>
-  )
-}
+  );
+};
 
-const StyledBurger = styled.button`
+const StyledBurger = styled.button<StyledMenuProps>`
   position: absolute;
   top: 1rem;
   right: 3rem;
@@ -101,76 +115,69 @@ const StyledBurger = styled.button`
       transform: ${({ open }) => open ? 'rotate(-45deg)' : 'rotate(0)'};
     }
   }
-`
+`;
 
-const Burger = ({ open, setOpen }) => {
+const Burger = ({ open, setOpen }: BurgerProps) => {
   return (
     <StyledBurger open={open} onClick={() => setOpen(!open)}>
       <div />
       <div />
       <div />
     </StyledBurger>
-  )
-}
+  );
+};
 
 const BurgerMenu = () => {
-  const [open, setOpen] = React.useState(false);
-  const node = React.useRef();
+  const [open, setOpen] = useState(false);
+  const node = useRef<HTMLDivElement>(null);
+  
   return (
     <div ref={node} className="sp">
       <Burger open={open} setOpen={setOpen} />
       <Menu open={open} setOpen={setOpen} />
     </div>
-  )  
-}
+  );
+};
 
-export default class Navbar extends Component {
-  constructor(props) {
-    super(props);
+const Navbar = () => {
+  const [isTop, setIsTop] = useState(true);
 
-    this.state = {
-      isTop: true
-    };
-    this.onScroll = this.onScroll.bind(this);
-  }
-
-  componentDidMount() {
-    document.addEventListener('scroll', () => {
-      const isTop = window.scrollY < window.innerHeight - 120;
-      if (isTop !== this.state.isTop) {
-        this.onScroll(isTop);
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentIsTop = window.scrollY < window.innerHeight - 120;
+      if (currentIsTop !== isTop) {
+        setIsTop(currentIsTop);
       }
-    });
-  }
+    };
 
-  onScroll(isTop) {
-    this.setState({ isTop });
-  }
+    document.addEventListener('scroll', handleScroll);
+    return () => document.removeEventListener('scroll', handleScroll);
+  }, [isTop]);
 
-  render() {
-    return (
-      <header className={this.state.isTop ? 'white-header' : 'blue-header'}>
-        <div className="header-left">
-          <div className="logo"><Link to='/#homemain'>#AyaTsubakino</Link></div>
-        </div>
-        <BurgerMenu />
-        <nav className="pc">
-          <ul>
-            <li>
-              <Link to="/#homemain">Home</Link>
-            </li>
-            <li>
-              <Link smooth to="/#skills">Skills</Link>
-            </li>
-            <li>
-              <Link smooth to="/#projects">Projects</Link>
-            </li>
-            <li>
-              <Link smooth to="/#about">About</Link>
-            </li>
-          </ul>
-        </nav>
-      </header>
-    );
-  }
-}
+  return (
+    <header className={isTop ? 'white-header' : 'blue-header'}>
+      <div className="header-left">
+        <div className="logo"><Link to='/#homemain'>#AyaTsubakino</Link></div>
+      </div>
+      <BurgerMenu />
+      <nav className="pc">
+        <ul>
+          <li>
+            <Link to="/#homemain">Home</Link>
+          </li>
+          <li>
+            <Link smooth to="/#skills">Skills</Link>
+          </li>
+          <li>
+            <Link smooth to="/#projects">Projects</Link>
+          </li>
+          <li>
+            <Link smooth to="/#about">About</Link>
+          </li>
+        </ul>
+      </nav>
+    </header>
+  );
+};
+
+export default Navbar; 

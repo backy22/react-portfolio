@@ -17,10 +17,10 @@ const About = () => {
         </div>
         <div className="profile-text">
           <p>
-            <span>&#129306;</span>Hi, my name is Aya! I'm a Full-Stack developer passionate about learning new technologies located in Toronto🇨🇦, born and raised in Japan🇯🇵
+            <span>&#129306;</span>Hi, my name is Aya! I&apos;m a Full-Stack developer passionate about learning new technologies located in Toronto🇨🇦, born and raised in Japan🇯🇵
             <br />
             <br />
-            I've been working for multiple clients in Canada and Japan for 5 years including React-based Web applications, npm library, and Rails-based video on demand platform💪
+            I&apos;ve been working for multiple clients in Canada and Japan for 5 years including React-based Web applications, npm library, and Rails-based video on demand platform💪
             <br />
             <br />
             I am <span className="highlight">goal-oriented</span>, good at <span className="highlight">adapting to new environment</span>, and love <span className="highlight">coding and tech industry</span>&#128525;
@@ -37,6 +37,6 @@ const About = () => {
       </div>
     </section>
   );
-}
+};
 
-export default About;
+export default About; 

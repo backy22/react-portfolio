@@ -4,7 +4,7 @@ import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import About from "./components/About";
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="container">
       <HomeMain />
@@ -15,4 +15,4 @@ function App() {
   );
 }
 
-export default App;
+export default App; 

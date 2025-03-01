@@ -2,7 +2,19 @@ import React, { useEffect } from 'react';
 import arrow from "../img/arrow.svg";
 import WOW from "wowjs";
 
-const DetailMain = (props) => {
+interface ProjectMain {
+  title: string;
+  type: string;
+  weblink: string;
+  githublink: string;
+  mainimg: string;
+}
+
+interface DetailMainProps {
+  projectmain: ProjectMain;
+}
+
+const DetailMain = ({ projectmain }: DetailMainProps) => {
   useEffect(() => {
     new WOW.WOW().init();
   }, []);
@@ -12,17 +24,17 @@ const DetailMain = (props) => {
       <div className="detailmain-flexbox">
         <div className="detailmain-box">
           <div className="detailmain-box-text">
-            <h1>{props.projectmain.title}</h1>
-            <p>{props.projectmain.type}</p>
+            <h1>{projectmain.title}</h1>
+            <p>{projectmain.type}</p>
             <div>
-              <a href={props.projectmain.weblink} target='blank'><button>VIEW LIVE</button></a>
-              <a href={props.projectmain.githublink} target='blank'><button>VIEW CODE</button></a>
+              <a href={projectmain.weblink} target='blank'><button>VIEW LIVE</button></a>
+              <a href={projectmain.githublink} target='blank'><button>VIEW CODE</button></a>
             </div>
           </div>
         </div>
         <div className="detailmain-box">
           <div className="detailmain-box-image wow fadeInRight">
-            <img src={props.projectmain.mainimg} alt="main" />
+            <img src={projectmain.mainimg} alt="main" />
           </div>
         </div>
       </div>
@@ -31,6 +43,6 @@ const DetailMain = (props) => {
       </div>
     </section>
   );
-}
+};
 
-export default DetailMain;
+export default DetailMain; 
