@@ -16,7 +16,6 @@ import mysql from "../img/mysql.svg";
 import firebase from "../img/firebase.svg";
 import mongodb from "../img/mongodb.svg";
 import git from "../img/git.svg";
-import WOW from "wowjs";
 
 interface SkillData {
   icon: string;
@@ -55,10 +54,6 @@ const skills: SkillData[] = [
 ];
 
 const Skills = () => {
-  useEffect(() => {
-    new WOW.WOW().init();
-  }, []);
-
   const skillList = () => {
     return skills.map((skill, index) => (
       <Skill key={index} skill={skill} />

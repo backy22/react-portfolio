@@ -1,11 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import animalDetectionThumbnail from "../img/animal_result.png";
 import weatherThumbnail from "../img/weather-thumbnail.jpeg";
 import orgdesignThumbnail from "../img/orgdesign-thumbnail.png";
 import jibseThumbnail from "../img/jibse-thumbnail.png";
 import rooknrollThumbnail from "../img/rooknroll-thumbnail.png";
 import webrtcGroupChatThumbnail from "../img/webrtc_group_chat.png";
-import WOW from "wowjs";
 
 interface ProjectData {
   thumbnail: string;
@@ -126,10 +125,6 @@ const projects: ProjectData[] = [
 ];
 
 const Projects: React.FC = () => {
-  useEffect(() => {
-    new WOW.WOW().init();
-  }, []);
-
   const projectList = () => {
     return projects.map((project, index) => {
       return <Project key={index} project={project} />;

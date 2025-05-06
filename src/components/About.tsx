@@ -1,13 +1,7 @@
-import React, { useEffect } from 'react';
 import profileImage from "../img/profile-image.jpeg";
-import WOW from "wowjs";
 import resume from '../img/Resume_AyaTsubakino.pdf';
 
 const About = () => {
-  useEffect(() => {
-    new WOW.WOW().init();
-  }, []);
-
   return (
     <section id="about" className="wow bounceInLeft">
       <h1><span className="highlight">About me</span></h1>

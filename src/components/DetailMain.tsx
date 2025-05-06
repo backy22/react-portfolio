@@ -1,6 +1,4 @@
-import React, { useEffect } from 'react';
 import arrow from "../img/arrow.svg";
-import WOW from "wowjs";
 
 interface ProjectMain {
   title: string;
@@ -15,10 +13,6 @@ interface DetailMainProps {
 }
 
 const DetailMain = ({ projectmain }: DetailMainProps) => {
-  useEffect(() => {
-    new WOW.WOW().init();
-  }, []);
-
   return (
     <section className="detailmain">
       <div className="detailmain-flexbox">

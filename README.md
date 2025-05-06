@@ -8,7 +8,6 @@ A modern, responsive portfolio website built with React 18 and React Router 6. V
 - React Router 6
 - Vite
 - Vanilla Extract
-- WOW.js for animations
 - Node.js 20+
 - Typescript
 
