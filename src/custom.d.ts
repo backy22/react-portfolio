@@ -27,10 +27,3 @@ declare module "*.json" {
   const content: any;
   export default content;
 }
-
-declare module "wowjs" {
-  export class WOW {
-    constructor(options?: any);
-    init(): void;
-  }
-} 

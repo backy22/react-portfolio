@@ -1,6 +1,58 @@
 import { globalStyle, globalFontFace, style } from '@vanilla-extract/css';
 import { vars } from '../styles/theme.css';
 
+globalStyle('header', {
+  padding: '10px 10vw',
+  width: '100%',
+  boxSizing: 'border-box',
+  background: '#ffffff',
+  position: 'fixed',
+  zIndex: 10,
+  top: 0,
+
+  '@media': {
+    'screen and (max-width: 640px)': {
+      height: '4rem',
+    },
+  },
+});
+
+globalStyle('.blue-header', {
+  transition: 'background 3s',
+  background: '#5ecbf5',
+});
+
+globalStyle('header button', {
+  padding: '5px 10px',
+  fontSize: '1em',
+});
+
+globalStyle('.logo-link', {
+  textDecoration: 'none',
+  color: '#5ecbf5',
+});
+
+globalStyle('.blue-header .logo-link', {
+  color: '#ffffff',
+});
+
+globalStyle('.blue-header .logo-link:hover', {
+  color: '#222250',
+  transition: '0.3s',
+});
+
+globalStyle('.white-header', {
+  backgroundColor: vars.headerBg,
+})
+
+globalStyle('.blue-header', {
+  backgroundColor: vars.headerBgAlt,
+})
+
+globalStyle('.blue-header li a', {
+  color: '#ffffff',
+});
+
 export const headerLeft = style({
   float: 'left',
 

@@ -1,4 +1,4 @@
-import { globalStyle, globalFontFace } from '@vanilla-extract/css';
+import { globalStyle, globalFontFace, keyframes } from '@vanilla-extract/css';
 import { vars } from './theme.css';
 
 globalFontFace('Dosis', {
@@ -91,63 +91,9 @@ globalStyle('a', {
   textDecoration: 'none',
 });
 
-// global class styles
 globalStyle('.highlight', {
   color: vars.highlight,
   borderBottom: `2px solid #5ecbf5`,
-});
-
-// header
-globalStyle('header', {
-  padding: '10px 10vw',
-  width: '100%',
-  boxSizing: 'border-box',
-  background: '#ffffff',
-  position: 'fixed',
-  zIndex: 10,
-  top: 0,
-
-  '@media': {
-    'screen and (max-width: 640px)': {
-      height: '4rem',
-    },
-  },
-});
-
-globalStyle('.blue-header', {
-  transition: 'background 3s',
-  background: '#5ecbf5',
-});
-
-globalStyle('header button', {
-  padding: '5px 10px',
-  fontSize: '1em',
-});
-
-globalStyle('.logo-link', {
-  textDecoration: 'none',
-  color: '#5ecbf5',
-});
-
-globalStyle('.blue-header .logo-link', {
-  color: '#ffffff',
-});
-
-globalStyle('.blue-header .logo-link:hover', {
-  color: '#222250',
-  transition: '0.3s',
-});
-
-globalStyle('.white-header', {
-  backgroundColor: vars.headerBg,
-})
-
-globalStyle('.blue-header', {
-  backgroundColor: vars.headerBgAlt,
-})
-
-globalStyle('.blue-header li a', {
-  color: '#ffffff',
 });
 
 // home main
@@ -170,6 +116,12 @@ globalStyle('.Typist', {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
+
+  '@media': {
+    'screen and (max-width: 640px)': {
+      fontSize: '0.7em',
+    },
+  },
 });
 
 globalStyle('.typing', {
@@ -185,6 +137,60 @@ globalStyle('.Cursor--blinking', {
 globalStyle('.hand', {
   margin: '0',
   display: 'inline',
+});
+
+const wiggle = keyframes({
+  '0%': { transform: 'rotate(-10deg)' },
+  '25%': { transform: 'rotate(10deg)' },
+  '50%': { transform: 'rotate(-10deg)' },
+  '75%': { transform: 'rotate(10deg)' },
+  '100%': { transform: 'rotate(-10deg)' },
+});
+
+const flip = keyframes({
+  '0%': { transform: 'rotate3d(0, 1, 0, 0deg)' },
+  '50%': { transform: 'rotate3d(0, 1, 0, 180deg)' },
+  '100%': { transform: 'rotate3d(0, 1, 0, 0deg)' },
+});
+
+const updown = keyframes({
+  '0%, 100%': { transform: 'translateY(0)' },
+  '40%': { transform: 'translateY(-3px)' },
+  '60%': { transform: 'translateY(-6px)' },
+});
+
+const bounce = keyframes({
+  '0%, 20%, 50%, 80%, 100%': { transform: 'translateY(0)' },
+  '40%': { transform: 'translateY(-30px)' },
+  '60%': { transform: 'translateY(-15px)' },
+});
+
+globalStyle('.flag', {
+  display: 'inline-block',
+  margin: '0',
+  'animation': `${flip} 1s infinite`,
+});
+
+globalStyle('.grow', {
+  display: 'inline-block',
+  margin: '0',
+  'animation': `${updown} 1s infinite`,
+});
+
+globalStyle('.arrow', {
+  position: 'absolute',
+  bottom: '40px',
+  right: '0',
+  left: '0',
+  margin: '0 auto',
+  width: '50px',
+  'animation': `${bounce} 2s infinite`,
+
+  '@media': {
+    'screen and (max-width: 640px)': {
+      width: '30px',
+    },
+  },
 });
 
 // skills
