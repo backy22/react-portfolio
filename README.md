@@ -6,7 +6,8 @@ A modern, responsive portfolio website built with React 18 and React Router 6. V
 
 - React 18
 - React Router 6
-- Styled Components
+- Vite
+- Vanilla Extract
 - WOW.js for animations
 - Node.js 20+
 - Typescript
@@ -26,10 +27,10 @@ npm install
 
 3. Start the development server:
 ```bash
-npm start
+npm run dev
 ```
 
-The app will be running at [http://localhost:3000](http://localhost:3000)
+The app will be running at [http://localhost:5173](http://localhost:5173)
 
 ## 📦 Build
 
