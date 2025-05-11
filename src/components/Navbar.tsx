@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { HashLink as Link } from 'react-router-hash-link';
+import { Link } from 'react-router';
 import { pc, sp, pcLink, pcLinkBlueHeader, headerLeft, burgerBtn, burgerDiv, burgerDivOpen, mobileMenu, mobileMenuOpen, mobileMenuUl, mobileMenuLink, toggleBtn, toggleBtnDarkMode, toggleIcon } from './Navbar.css';
 
 interface MenuProps {
@@ -89,6 +89,7 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode, toggleTheme }) => {
           <li><Link className={pcLink + ' ' + (isTop ? '' : pcLinkBlueHeader)} smooth to="/#skills">Skills</Link></li>
           <li><Link className={pcLink + ' ' + (isTop ? '' : pcLinkBlueHeader)} smooth to="/#projects">Projects</Link></li>
           <li><Link className={pcLink + ' ' + (isTop ? '' : pcLinkBlueHeader)} smooth to="/#about">About</Link></li>
+          <li><Link className={pcLink + ' ' + (isTop ? '' : pcLinkBlueHeader)} smooth to="/blogs">Blog</Link></li>
           <li><ThemeToggle isDarkMode={isDarkMode} toggleTheme={toggleTheme} /></li>
         </ul>
       </nav>

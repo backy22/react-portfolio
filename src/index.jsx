@@ -1,30 +1,20 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router";
 import App from './App';
-import StudyBuddies from "./components/StudyBuddies";
-import GiveTake from "./components/GiveTake";
-import ProjectsCMS from "./components/ProjectsCMS";
-import Sean from "./components/Sean";
-import Tsubaki from "./components/Tsubaki";
-import Navbar from "./components/Navbar";
+import Blog from "./components/Blog";
 import Footer from "./components/Footer";
 
 const root = createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
-    <Router>
-      {/* <Navbar /> */}
+    <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/studybuddies" element={<StudyBuddies />} />
-        <Route path="/givetake" element={<GiveTake />} />
-        <Route path="/projectscms" element={<ProjectsCMS />} />
-        <Route path="/sean" element={<Sean />} />
-        <Route path="/tsubaki" element={<Tsubaki />} />
+          <Route path="/" element={<App />} />
+          <Route path="/blogs" element={<Blog />} />
       </Routes>
       <Footer />
-    </Router>
+    </BrowserRouter>
   </React.StrictMode>
 );
