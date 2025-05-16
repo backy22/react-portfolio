@@ -31,10 +31,11 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && tsc -p server/tsconfig.json",
     "preview": "vite preview",
-    "server": "node --loader ts-node/esm server/src/index.ts",
-    "server:dev": "nodemon --exec 'node --loader ts-node/esm' server/src/index.ts"
+    "server": "node dist/server/src/index.js",
+    "server:dev": "nodemon --exec 'node --loader ts-node/esm' server/src/index.ts",
+    "server:build": "tsc -p server/tsconfig.json"
   },
   "eslintConfig": {
     "extends": "react-app"

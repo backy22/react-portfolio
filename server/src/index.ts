@@ -1,13 +1,27 @@
 import express from 'express';
 import cors from 'cors';
 import { getBlogPosts } from './notion.js';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const app = express();
-const port = 3002;
+const port = process.env.PORT || 3002;
+const allowedOrigins = [
+  'http://localhost:5173', // Vite's default port
+  'https://ayatsubakino.com', // Your production domain
+  process.env.FRONTEND_URL, // Optional: from environment variable
+].filter(Boolean);
 
 // CORS setup
 app.use(cors({
-  origin: 'http://localhost:5173', // Vite's default port
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   methods: ['GET', 'POST'],
   credentials: true
 }));
