@@ -1,6 +1,7 @@
 version: 1
 applications:
-  - frontend:
+  - appRoot: .
+    frontend:
       phases:
         preBuild:
           commands:
@@ -15,7 +16,8 @@ applications:
       cache:
         paths:
           - node_modules/**/*
-    
+  
+  - appRoot: server
     backend:
       phases:
         preBuild:
@@ -28,7 +30,7 @@ applications:
           commands:
             - npm run server &
       artifacts:
-        baseDirectory: server/dist
+        baseDirectory: ../dist/server
         files:
           - '**/*'
       cache:
