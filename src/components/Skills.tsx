@@ -27,7 +27,7 @@ interface SkillProps {
 }
 
 const Skill: React.FC<SkillProps> = ({ skill }) => (
-  <div className="skill wow bounceIn">
+  <div className="skill bounceIn">
     <img src={skill.icon} alt="skill icon"/>
     <div className="skill-name">{skill.skillname}</div>
   </div>

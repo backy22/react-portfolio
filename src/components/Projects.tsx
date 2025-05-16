@@ -30,7 +30,7 @@ interface GithubLinkProps {
 
 const Project: React.FC<ProjectProps> = ({ project }) => {
   return (
-    <div className="project wow bounceInUp">
+    <div className="project bounceInUp">
       <div className="project-thumbnail">
         <div className="thumbnail">
           <img src={project.thumbnail} alt="project thumbnail"/>

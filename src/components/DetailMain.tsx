@@ -27,7 +27,7 @@ const DetailMain = ({ projectmain }: DetailMainProps) => {
           </div>
         </div>
         <div className="detailmain-box">
-          <div className="detailmain-box-image wow fadeInRight">
+          <div className="detailmain-box-image fadeInRight">
             <img src={projectmain.mainimg} alt="main" />
           </div>
         </div>

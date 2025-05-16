@@ -1,17 +1,38 @@
-import { Link } from 'react-router';
-import { headerLeft } from './Navbar.css';
+import { Link, useParams } from 'react-router';
+import BlogHeader from './BlogHeader';
+import { blogContainer, blogContent } from './Blog.css';
+import YoutubeMcpServer from '../blogs/youtube-mcp-server';
+import { BlogPosts } from '../blogs/BlogPosts';
 
 const Blog = () => {
-  return (
-    <header>
-      <div className={headerLeft}>
-        <div className="logo"><Link to='/#homemain' className='logo-link'>#AyaTsubakino</Link></div>
+  const { slug } = useParams();
+
+  const post = BlogPosts.find(post => post.slug === slug);
+
+  if (!post) {
+    return (
+      <div className="blog-container">
+        <h1>Blog Not Found</h1>
+        <p>Sorry, the blog post you're looking for doesn't exist.</p>
+        <Link to="/blogs" className="back-link">← Back to Blog List</Link>
       </div>
-      <section>
-        <h1>Blog</h1>
-        <div>Under Construction</div>
-      </section>
-    </header>
+    );
+  }
+
+  return (
+    <div className={blogContainer}>
+      <BlogHeader />
+      <main className={blogContent}>
+        <Link to="/blogs" className="back-link">← Back to Blog List</Link>
+        <article className="blog-post">
+          <h1>{post.title}</h1>
+          <p className="blog-date">{post.date}</p>
+          <div className="blog-content">
+            <YoutubeMcpServer />
+          </div>
+        </article>
+      </main>
+    </div>
   );
 };
 

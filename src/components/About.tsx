@@ -3,7 +3,7 @@ import resume from '../img/Resume_AyaTsubakino.pdf';
 
 const About = () => {
   return (
-    <section id="about" className="wow bounceInLeft">
+    <section id="about" className="bounceInLeft">
       <h1><span className="highlight">About me</span></h1>
       <div className="profile-wrapper">
         <div className="profile-image">

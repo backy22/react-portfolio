@@ -5,7 +5,7 @@ A modern, responsive portfolio website built with React 18 and React Router 6. V
 ## 🚀 Technologies Used
 
 - React 18
-- React Router 6
+- React Router 7
 - Vite
 - Vanilla Extract
 - Node.js 20+
