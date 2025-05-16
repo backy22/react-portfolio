@@ -10,6 +10,7 @@ A modern, responsive portfolio website built with React 18 and React Router 6. V
 - Vanilla Extract
 - Node.js 20+
 - Typescript
+- Notion API
 
 ## 🛠️ Setup and Installation
 
@@ -25,6 +26,11 @@ npm install
 ```
 
 3. Start the development server:
+
+```bash
+npm run server:dev
+```
+
 ```bash
 npm run dev
 ```
