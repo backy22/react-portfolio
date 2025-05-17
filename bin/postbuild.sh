@@ -9,8 +9,8 @@ rm -rf ./.amplify-hosting
 echo "Cleaned up previous build"
 
 # Create directories
-mkdir -p ./.amplify-hosting/compute/default
-mkdir -p ./.amplify-hosting/static
+mkdir -p ./.amplify-hosting/artifacts/compute/default
+mkdir -p ./.amplify-hosting/artifacts/static
 echo "Created directories"
 
 # Create a temporary directory for production dependencies
@@ -24,34 +24,34 @@ echo "Installed production dependencies"
 
 # Copy server files
 echo "Copying server files..."
-cp -r ./dist/server/src/* ./.amplify-hosting/compute/default/
-cp -r ./temp_prod_modules/node_modules ./.amplify-hosting/compute/default/
+cp -r ./dist/server/src/* ./.amplify-hosting/artifacts/compute/default/
+cp -r ./temp_prod_modules/node_modules ./.amplify-hosting/artifacts/compute/default/
 
 # Copy static files (frontend)
 echo "Copying static files..."
-cp -r ./dist/* ./.amplify-hosting/static/
-rm -rf ./.amplify-hosting/static/server  # Remove server files from static directory
+cp -r ./dist/* ./.amplify-hosting/artifacts/static/
+rm -rf ./.amplify-hosting/artifacts/static/server  # Remove server files from static directory
 
 # Copy configuration files
 echo "Copying configuration files..."
 if [ -f .env ]; then
-  cp .env ./.amplify-hosting/compute/default/.env
-  chmod 600 ./.amplify-hosting/compute/default/.env
+  cp .env ./.amplify-hosting/artifacts/compute/default/.env
+  chmod 600 ./.amplify-hosting/artifacts/compute/default/.env
   echo "Copied .env file"
 fi
 
 # Copy package files
-cp package.json ./.amplify-hosting/compute/default/package.json
-cp yarn.lock ./.amplify-hosting/compute/default/yarn.lock
-cp .npmrc ./.amplify-hosting/compute/default/.npmrc
+cp package.json ./.amplify-hosting/artifacts/compute/default/package.json
+cp yarn.lock ./.amplify-hosting/artifacts/compute/default/yarn.lock
+cp .npmrc ./.amplify-hosting/artifacts/compute/default/.npmrc
 cp deploy-manifest.json ./.amplify-hosting/deploy-manifest.json
 
 # Set proper permissions
 echo "Setting permissions..."
-chmod -R 755 ./.amplify-hosting/compute/default
-chmod 644 ./.amplify-hosting/compute/default/package.json
-chmod 644 ./.amplify-hosting/compute/default/yarn.lock
-chmod 644 ./.amplify-hosting/compute/default/.npmrc
+chmod -R 755 ./.amplify-hosting/artifacts/compute/default
+chmod 644 ./.amplify-hosting/artifacts/compute/default/package.json
+chmod 644 ./.amplify-hosting/artifacts/compute/default/yarn.lock
+chmod 644 ./.amplify-hosting/artifacts/compute/default/.npmrc
 
 # Clean up
 echo "Cleaning up..."
@@ -62,5 +62,5 @@ echo "Postbuild script completed successfully"
 # List the contents of the build directory
 echo "Build directory contents:"
 ls -la ./.amplify-hosting/
-ls -la ./.amplify-hosting/compute/default/
-ls -la ./.amplify-hosting/static/ 
+ls -la ./.amplify-hosting/artifacts/compute/default/
+ls -la ./.amplify-hosting/artifacts/static/ 

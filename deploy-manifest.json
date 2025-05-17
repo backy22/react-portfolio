@@ -1,29 +1,33 @@
 {
   "version": 1,
-  "appRoot": ".",
   "routes": [
     {
-      "path": "/api/*",
-      "target": "/compute/default"
+      "source": "/api/*",
+      "target": "compute/default"
     },
     {
-      "path": "/_health",
-      "target": "/compute/default"
+      "source": "/_health",
+      "target": "compute/default"
     },
     {
-      "path": "/*",
-      "target": "/static",
-      "fallback": "/static/index.html"
+      "source": "/*",
+      "target": "static",
+      "rewrite": "index.html"
     }
   ],
-  "compute": {
-    "default": {
-      "runtime": "nodejs20.x",
-      "handler": "src/index.js",
-      "memory": 512,
-      "environment": {
-        "NODE_ENV": "production"
+  "artifacts": {
+    "compute": {
+      "default": {
+        "handler": "index.js",
+        "runtime": "nodejs20.x",
+        "memory": 512,
+        "environment": {
+          "NODE_ENV": "production"
+        }
       }
+    },
+    "static": {
+      "baseDirectory": "static"
     }
   }
 } 
