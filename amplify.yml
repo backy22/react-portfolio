@@ -13,29 +13,6 @@ applications:
         build:
           commands:
             - yarn build
-      artifacts:
-        baseDirectory: .amplify-hosting
-        files:
-          - '**/*'
-      cache:
-        paths:
-          - node_modules/**/*
-    appRoot: .
-  - appRoot: .
-    frontend:
-      phases:
-        preBuild:
-          commands:
-            - nvm use 20
-            - npm ci
-            # Create env file from Amplify environment variables
-            - |
-              echo "PORT=8080" > .env
-              echo "NOTION_API_KEY=${NOTION_API_KEY}" >> .env
-              echo "FRONTEND_URL=${FRONTEND_URL}" >> .env
-        build:
-          commands:
-            - npm run build
             - chmod +x bin/postbuild.sh
             - ./bin/postbuild.sh
       artifacts:
@@ -44,4 +21,5 @@ applications:
           - '**/*'
       cache:
         paths:
-          - node_modules/**/* 
+          - node_modules/**/*
+    appRoot: . 
