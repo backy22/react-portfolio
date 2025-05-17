@@ -5,6 +5,9 @@ import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
 export default defineConfig({
   plugins: [react(), vanillaExtractPlugin()],
   build: {
-    outDir: 'build',
+    outDir: 'dist',
   },
+  define: {
+    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'production')
+  }
 }); 

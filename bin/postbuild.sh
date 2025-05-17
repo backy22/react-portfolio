@@ -15,4 +15,9 @@ cp -r ./dist/* ./.amplify-hosting/static/
 # Copy environment and config files
 cp .env ./.amplify-hosting/compute/default/.env
 cp package.json ./.amplify-hosting/compute/default/package.json
-cp deploy-manifest.json ./.amplify-hosting/deploy-manifest.json 
+cp deploy-manifest.json ./.amplify-hosting/deploy-manifest.json
+
+# Set proper permissions
+chmod 644 ./.amplify-hosting/compute/default/.env
+chmod -R 755 ./.amplify-hosting/compute/default/src
+chmod 644 ./.amplify-hosting/compute/default/package.json 

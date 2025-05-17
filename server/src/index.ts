@@ -2,19 +2,18 @@ import express from 'express';
 import cors from 'cors';
 import { getBlogPosts } from './notion.js';
 import dotenv from 'dotenv';
-import path from 'path';
 
 // Load environment variables
 dotenv.config();
 
-// Debug environment
-console.log('Environment variables loaded:', {
-  PORT: process.env.PORT,
-  NODE_ENV: process.env.NODE_ENV,
-  FRONTEND_URL: process.env.FRONTEND_URL,
-  // Don't log sensitive keys, just check if they exist
-  NOTION_API_KEY: process.env.NOTION_API_KEY ? 'Set' : 'Not set'
-});
+// Validate required environment variables
+const requiredEnvVars = ['PORT', 'NOTION_API_KEY'];
+const missingEnvVars = requiredEnvVars.filter(varName => !process.env[varName]);
+
+if (missingEnvVars.length > 0) {
+  console.error('Missing required environment variables:', missingEnvVars);
+  process.exit(1);
+}
 
 const app = express();
 const port = process.env.PORT || 3002;
@@ -24,16 +23,21 @@ const allowedOrigins = [
   process.env.FRONTEND_URL, // Optional: from environment variable
 ].filter(Boolean);
 
-console.log('Allowed origins:', allowedOrigins);
+// Debug environment (without exposing sensitive values)
+console.log('Server configuration:', {
+  port,
+  allowedOrigins,
+  environment: process.env.NODE_ENV || 'production',
+  hasNotionKey: !!process.env.NOTION_API_KEY
+});
 
 // CORS setup
 app.use(cors({
   origin: (origin, callback) => {
-    console.log('Incoming request from origin:', origin);
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
-      console.log('CORS blocked origin:', origin);
+      console.warn('Blocked request from unauthorized origin:', origin);
       callback(new Error('Not allowed by CORS'));
     }
   },
