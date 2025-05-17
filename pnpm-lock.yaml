@@ -29,6 +29,9 @@ importers:
       node-fetch:
         specifier: ^3.3.2
         version: 3.3.2
+      serverless-http:
+        specifier: ^3.2.0
+        version: 3.2.0
       vite:
         specifier: ^6.3.5
         version: 6.3.5(@types/node@22.15.18)(tsx@4.19.4)
@@ -84,9 +87,6 @@ importers:
       rollup:
         specifier: ^3.29.5
         version: 3.29.5
-      serverless-http:
-        specifier: ^3.2.0
-        version: 3.2.0
       ts-node:
         specifier: ^10.9.2
         version: 10.9.2(@types/node@22.15.18)(typescript@4.9.5)

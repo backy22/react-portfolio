@@ -7,7 +7,7 @@ applications:
           commands:
             - nvm use 20
             - npm install -g pnpm
-            - pnpm install
+            - pnpm install --no-frozen-lockfile
             - echo "NOTION_API_KEY=${NOTION_API_KEY}" >> .env
             - echo "NOTION_DATABASE_ID=${NOTION_DATABASE_ID}" >> .env
         build:
@@ -19,7 +19,7 @@ applications:
           commands:
             - nvm use 20
             - npm install -g pnpm
-            - pnpm install
+            - pnpm install --no-frozen-lockfile
         build:
           commands:
             - NODE_ENV=production pnpm build:frontend
