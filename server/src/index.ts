@@ -2,33 +2,34 @@ import express from 'express';
 import cors from 'cors';
 import { getBlogPosts } from './notion.js';
 import dotenv from 'dotenv';
+import path from 'path';
 
-// Load environment variables
-dotenv.config();
+// Load environment variables with fallbacks
+const envConfig = {
+  PORT: process.env.PORT || '8080',
+  NOTION_API_KEY: process.env.NOTION_API_KEY || '',
+  FRONTEND_URL: process.env.FRONTEND_URL || 'https://ayatsubakino.com'
+};
 
 // Validate required environment variables
-const requiredEnvVars = ['PORT', 'NOTION_API_KEY'];
-const missingEnvVars = requiredEnvVars.filter(varName => !process.env[varName]);
-
-if (missingEnvVars.length > 0) {
-  console.error('Missing required environment variables:', missingEnvVars);
+if (!envConfig.NOTION_API_KEY) {
+  console.error('Missing required environment variable: NOTION_API_KEY');
   process.exit(1);
 }
 
 const app = express();
-const port = process.env.PORT || 3002;
+const port = parseInt(envConfig.PORT, 10);
 const allowedOrigins = [
   'http://localhost:5173', // Vite's default port
   'https://ayatsubakino.com', // Your production domain
-  process.env.FRONTEND_URL, // Optional: from environment variable
-].filter(Boolean);
+  envConfig.FRONTEND_URL, // From environment
+].filter((origin): origin is string => Boolean(origin));
 
 // Debug environment (without exposing sensitive values)
 console.log('Server configuration:', {
   port,
   allowedOrigins,
-  environment: process.env.NODE_ENV || 'production',
-  hasNotionKey: !!process.env.NOTION_API_KEY
+  hasNotionKey: !!envConfig.NOTION_API_KEY
 });
 
 // CORS setup

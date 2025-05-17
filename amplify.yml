@@ -9,11 +9,9 @@ applications:
             - npm ci
             # Create env file from Amplify environment variables
             - |
-              cat << EOF > .env
-              PORT=8080
-              NOTION_API_KEY=$NOTION_API_KEY
-              FRONTEND_URL=$FRONTEND_URL
-              EOF
+              echo "PORT=8080" > .env
+              echo "NOTION_API_KEY=${NOTION_API_KEY}" >> .env
+              echo "FRONTEND_URL=${FRONTEND_URL}" >> .env
         build:
           commands:
             - npm run build
