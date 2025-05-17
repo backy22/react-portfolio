@@ -18,7 +18,7 @@ echo "Installing production dependencies..."
 mkdir -p ./temp_prod_modules
 cp package.json package-lock.json ./temp_prod_modules/
 cd ./temp_prod_modules
-npm ci --only=production
+npm ci --only=production --legacy-peer-deps
 cd ..
 echo "Installed production dependencies"
 
@@ -39,6 +39,7 @@ if [ -f .env ]; then
   echo "Copied .env file"
 fi
 
+# Copy package files
 cp package.json ./.amplify-hosting/compute/default/package.json
 cp package-lock.json ./.amplify-hosting/compute/default/package-lock.json
 cp deploy-manifest.json ./.amplify-hosting/deploy-manifest.json
