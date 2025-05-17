@@ -1,28 +1,19 @@
 {
   "version": 1,
+  "appRoot": ".",
   "routes": [
     {
       "path": "/api/*",
-      "target": {
-        "kind": "Compute",
-        "name": "default"
-      }
+      "target": "/compute/default"
     },
     {
       "path": "/_health",
-      "target": {
-        "kind": "Compute",
-        "name": "default"
-      }
+      "target": "/compute/default"
     },
     {
       "path": "/*",
-      "target": {
-        "kind": "Static"
-      },
-      "fallback": {
-        "rewrite": "/index.html"
-      }
+      "target": "/static",
+      "fallback": "/static/index.html"
     }
   ],
   "compute": {
@@ -32,14 +23,6 @@
       "memory": 512,
       "environment": {
         "NODE_ENV": "production"
-      },
-      "healthCheck": {
-        "path": "/_health",
-        "initialDelaySeconds": 10,
-        "periodSeconds": 5,
-        "timeoutSeconds": 5,
-        "successThreshold": 1,
-        "failureThreshold": 3
       }
     }
   }

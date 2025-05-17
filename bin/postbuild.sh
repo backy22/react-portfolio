@@ -9,7 +9,7 @@ rm -rf ./.amplify-hosting
 echo "Cleaned up previous build"
 
 # Create directories
-mkdir -p ./.amplify-hosting/compute/default/src
+mkdir -p ./.amplify-hosting/compute/default
 mkdir -p ./.amplify-hosting/static
 echo "Created directories"
 
@@ -24,7 +24,7 @@ echo "Installed production dependencies"
 
 # Copy server files
 echo "Copying server files..."
-cp -r ./dist/server/src/* ./.amplify-hosting/compute/default/src/
+cp -r ./dist/server/src/* ./.amplify-hosting/compute/default/
 cp -r ./temp_prod_modules/node_modules ./.amplify-hosting/compute/default/
 
 # Copy static files (frontend)
@@ -48,8 +48,7 @@ cp deploy-manifest.json ./.amplify-hosting/deploy-manifest.json
 
 # Set proper permissions
 echo "Setting permissions..."
-chmod -R 755 ./.amplify-hosting/compute/default/src
-chmod -R 755 ./.amplify-hosting/compute/default/node_modules
+chmod -R 755 ./.amplify-hosting/compute/default
 chmod 644 ./.amplify-hosting/compute/default/package.json
 chmod 644 ./.amplify-hosting/compute/default/yarn.lock
 chmod 644 ./.amplify-hosting/compute/default/.npmrc
