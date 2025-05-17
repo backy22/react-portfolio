@@ -13,6 +13,7 @@ applications:
               PORT=8080
               NOTION_API_KEY=$NOTION_API_KEY
               FRONTEND_URL=$FRONTEND_URL
+              NODE_ENV=production
               EOF
         build:
           commands:
