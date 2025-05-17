@@ -5,14 +5,15 @@ applications:
         preBuild:
           commands:
             - nvm use 20
-            - npm install -g yarn
-            - yarn install
+            - npm install -g pnpm
+            - pnpm install
             - echo "PORT=8080" > .env
             - echo "NOTION_API_KEY=${NOTION_API_KEY}" >> .env
-            - echo "FRONTEND_URL=${FRONTEND_URL}" >> .env
+            - echo "NOTION_DATABASE_ID=${NOTION_DATABASE_ID}" >> .env
+            - echo "NODE_ENV=production" >> .env
         build:
           commands:
-            - yarn build
+            - pnpm build
             - chmod +x bin/postbuild.sh
             - ./bin/postbuild.sh
       artifacts:
@@ -22,4 +23,5 @@ applications:
       cache:
         paths:
           - node_modules/**/*
+          - .pnpm-store/**/*
     appRoot: . 

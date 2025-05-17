@@ -24,7 +24,7 @@ echo "Installed production dependencies"
 
 # Copy server files
 echo "Copying server files..."
-cp -r ./dist/server/src/* ./.amplify-hosting/artifacts/compute/default/
+cp -r ./dist/server/* ./.amplify-hosting/artifacts/compute/default/
 cp -r ./temp_prod_modules/node_modules ./.amplify-hosting/artifacts/compute/default/
 
 # Copy static files (frontend)

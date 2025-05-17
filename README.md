@@ -11,28 +11,27 @@ A modern, responsive portfolio website built with React 18 and React Router 6. V
 - Node.js 20+
 - Typescript
 - Notion API
+- Express
 
 ## 🛠️ Setup and Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/backy22/react-portfolio.git
 cd react-portfolio
 ```
 
 2. Install dependencies:
+
 ```bash
-yarn install
+pnpm install
 ```
 
 3. Start the development server:
 
 ```bash
-yarn server:dev
-```
-
-```bash
-yarn dev
+pnpm dev
 ```
 
 The app will be running at [http://localhost:3000](http://localhost:3000)

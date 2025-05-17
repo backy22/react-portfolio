@@ -6,7 +6,10 @@
         "runtime": "nodejs20.x",
         "handler": "index.js",
         "memorySize": 512,
-        "source": "/artifacts/compute/default"
+        "source": "/artifacts/compute/default",
+        "environment": {
+          "NODE_ENV": "production"
+        }
       }
     },
     "/_health": {
@@ -14,7 +17,10 @@
         "runtime": "nodejs20.x",
         "handler": "index.js",
         "memorySize": 512,
-        "source": "/artifacts/compute/default"
+        "source": "/artifacts/compute/default",
+        "environment": {
+          "NODE_ENV": "production"
+        }
       }
     },
     "/*": {
