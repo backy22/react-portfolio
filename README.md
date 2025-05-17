@@ -22,27 +22,27 @@ cd react-portfolio
 
 2. Install dependencies:
 ```bash
-npm install
+yarn install
 ```
 
 3. Start the development server:
 
 ```bash
-npm run server:dev
+yarn server:dev
 ```
 
 ```bash
-npm run dev
+yarn dev
 ```
 
-The app will be running at [http://localhost:5173](http://localhost:5173)
+The app will be running at [http://localhost:3000](http://localhost:3000)
 
 ## 📦 Build
 
 To create a production build:
 
 ```bash
-npm run build
+yarn build
 ```
 
 ## 🔧 Requirements

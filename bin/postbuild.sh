@@ -16,9 +16,9 @@ echo "Created directories"
 # Create a temporary directory for production dependencies
 echo "Installing production dependencies..."
 mkdir -p ./temp_prod_modules
-cp package.json package-lock.json ./temp_prod_modules/
+cp package.json package-lock.json .npmrc ./temp_prod_modules/
 cd ./temp_prod_modules
-npm ci --only=production --legacy-peer-deps
+npm ci --only=production --no-optional
 cd ..
 echo "Installed production dependencies"
 
@@ -42,6 +42,7 @@ fi
 # Copy package files
 cp package.json ./.amplify-hosting/compute/default/package.json
 cp package-lock.json ./.amplify-hosting/compute/default/package-lock.json
+cp .npmrc ./.amplify-hosting/compute/default/.npmrc
 cp deploy-manifest.json ./.amplify-hosting/deploy-manifest.json
 
 # Set proper permissions
@@ -49,6 +50,7 @@ echo "Setting permissions..."
 chmod -R 755 ./.amplify-hosting/compute/default/src
 chmod 644 ./.amplify-hosting/compute/default/package.json
 chmod 644 ./.amplify-hosting/compute/default/package-lock.json
+chmod 644 ./.amplify-hosting/compute/default/.npmrc
 
 # Clean up
 echo "Cleaning up..."

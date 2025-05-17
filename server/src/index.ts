@@ -25,7 +25,7 @@ const port = parseInt(envConfig.PORT, 10);
 app.set('trust proxy', 1);
 
 const allowedOrigins = [
-  'http://localhost:5173', // Vite's default port
+  'http://localhost:3000', // Vite's default port
   'https://ayatsubakino.com', // Your production domain
   envConfig.FRONTEND_URL, // From environment
 ].filter((origin): origin is string => Boolean(origin));

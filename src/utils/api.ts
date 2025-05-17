@@ -12,7 +12,7 @@ export interface BlogPost {
   blocks: Block[];
 }
 
-const API_BASE_URL = 'http://localhost:3002/api';
+const API_BASE_URL = 'http://localhost:8080/api';
 
 export async function getBlogPosts(): Promise<BlogPost[]> {
   try {
