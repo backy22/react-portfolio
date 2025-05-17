@@ -3,6 +3,7 @@ import cors from 'cors';
 import { getBlogPosts } from './notion.js';
 import dotenv from 'dotenv';
 import path from 'path';
+import { fileURLToPath } from 'url';
 
 // Load environment variables with fallbacks
 const envConfig = {
@@ -39,6 +40,7 @@ console.log('Server configuration:', {
 // CORS setup
 app.use(cors({
   origin: (origin, callback) => {
+    console.log('Request from origin:', origin);
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
@@ -54,6 +56,7 @@ app.use(express.json());
 
 // Health check endpoint
 app.get('/_health', (req, res) => {
+  console.log('Health check request received');
   res.status(200).json({ status: 'healthy' });
 });
 
@@ -69,13 +72,13 @@ app.get('/api/test', (req, res) => {
 
 app.get('/api/posts', async (req, res) => {
   try {
+    console.log('Fetching blog posts...');
     const posts = await getBlogPosts();
     res.json(posts);
   } catch (error: any) {
-    console.error('Detailed error in /api/posts:', {
+    console.error('Error in /api/posts:', {
       message: error.message,
-      stack: error.stack,
-      error
+      stack: error.stack
     });
     res.status(500).json({ 
       error: 'Failed to fetch blog posts', 
@@ -93,13 +96,18 @@ app.use((err: any, req: express.Request, res: express.Response, next: express.Ne
 // Start server
 const server = app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
+  console.log('Environment:', process.env.NODE_ENV);
+  console.log('Available routes:');
+  console.log('- /_health (Health check)');
+  console.log('- /api/test (Test endpoint)');
+  console.log('- /api/posts (Blog posts)');
 });
 
 // Add error handling
 server.on('error', (error: any) => {
+  console.error('Server error:', error);
   if (error.code === 'EADDRINUSE') {
     console.error(`Port ${port} is already in use`);
-  } else {
-    console.error('Server error:', error);
+    process.exit(1);
   }
 }); 
