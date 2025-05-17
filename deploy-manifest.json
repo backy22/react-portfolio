@@ -1,19 +1,18 @@
 {
   "version": 1,
-  "framework": { "name": "express", "version": "5.1.0" },
   "routes": [
     {
       "path": "/api/*",
       "target": {
         "kind": "Compute",
-        "src": "default"
+        "name": "default"
       }
     },
     {
       "path": "/_health",
       "target": {
         "kind": "Compute",
-        "src": "default"
+        "name": "default"
       }
     },
     {
@@ -26,11 +25,14 @@
       }
     }
   ],
-  "computeResources": [
-    {
-      "name": "default",
+  "compute": {
+    "default": {
       "runtime": "nodejs20.x",
-      "entrypoint": "src/index.js",
+      "handler": "src/index.js",
+      "memory": 512,
+      "environment": {
+        "NODE_ENV": "production"
+      },
       "healthCheck": {
         "path": "/_health",
         "initialDelaySeconds": 10,
@@ -40,5 +42,5 @@
         "failureThreshold": 3
       }
     }
-  ]
+  }
 } 

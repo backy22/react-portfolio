@@ -18,18 +18,19 @@ echo "Installing production dependencies..."
 mkdir -p ./temp_prod_modules
 cp package.json yarn.lock .npmrc ./temp_prod_modules/
 cd ./temp_prod_modules
-yarn install --production
+yarn install --production --no-optional
 cd ..
 echo "Installed production dependencies"
 
 # Copy server files
 echo "Copying server files..."
 cp -r ./dist/server/src/* ./.amplify-hosting/compute/default/src/
-cp -r ./temp_prod_modules/node_modules ./.amplify-hosting/compute/default/node_modules
+cp -r ./temp_prod_modules/node_modules ./.amplify-hosting/compute/default/
 
 # Copy static files (frontend)
 echo "Copying static files..."
 cp -r ./dist/* ./.amplify-hosting/static/
+rm -rf ./.amplify-hosting/static/server  # Remove server files from static directory
 
 # Copy configuration files
 echo "Copying configuration files..."
@@ -48,6 +49,7 @@ cp deploy-manifest.json ./.amplify-hosting/deploy-manifest.json
 # Set proper permissions
 echo "Setting permissions..."
 chmod -R 755 ./.amplify-hosting/compute/default/src
+chmod -R 755 ./.amplify-hosting/compute/default/node_modules
 chmod 644 ./.amplify-hosting/compute/default/package.json
 chmod 644 ./.amplify-hosting/compute/default/yarn.lock
 chmod 644 ./.amplify-hosting/compute/default/.npmrc
