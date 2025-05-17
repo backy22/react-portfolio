@@ -34,14 +34,14 @@ pnpm install
 pnpm dev
 ```
 
-The app will be running at [http://localhost:3000](http://localhost:3000)
+The app will be running at [http://localhost:5173](http://localhost:5173)
 
 ## 📦 Build
 
 To create a production build:
 
 ```bash
-yarn build
+pnpm build
 ```
 
 ## 🔧 Requirements

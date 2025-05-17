@@ -10,10 +10,9 @@ applications:
             - echo "PORT=8080" > .env
             - echo "NOTION_API_KEY=${NOTION_API_KEY}" >> .env
             - echo "NOTION_DATABASE_ID=${NOTION_DATABASE_ID}" >> .env
-            - echo "NODE_ENV=production" >> .env
         build:
           commands:
-            - pnpm build
+            - NODE_ENV=production pnpm build
             - chmod +x bin/postbuild.sh
             - ./bin/postbuild.sh
       artifacts:

@@ -4,6 +4,11 @@ import { Client } from '@notionhq/client';
 import dotenv from 'dotenv';
 import { fileURLToPath } from 'url';
 import path from 'path';
+import type { APIGatewayProxyHandler } from 'aws-lambda';
+import serverless from 'serverless-http';
+
+// Initialize Express app
+const app = express();
 
 try {
   // Handle ESM module context
@@ -30,10 +35,6 @@ try {
   });
 
   const DATABASE_ID = process.env.NOTION_DATABASE_ID;
-
-  // Initialize Express app
-  const app = express();
-  const port = parseInt(process.env.PORT || '3000', 10);
 
   // Enable CORS for all routes
   app.use(cors({
@@ -84,31 +85,20 @@ try {
     res.status(500).json({ error: 'Something broke!' });
   });
 
-  // Start server
-  const server = app.listen(port, '0.0.0.0', () => {
-    console.log(`Server running at http://localhost:${port}`);
-  });
-
-  // Handle server errors
-  server.on('error', (error: NodeJS.ErrnoException) => {
-    if (error.code === 'EADDRINUSE') {
-      console.error(`Port ${port} is already in use`);
-    } else {
-      console.error('Server error:', error);
-    }
-    process.exit(1);
-  });
-
-  // Handle process termination
-  process.on('SIGTERM', () => {
-    console.log('SIGTERM received. Shutting down gracefully...');
-    server.close(() => {
-      console.log('Server closed');
-      process.exit(0);
-    });
-  });
-
 } catch (error) {
   console.error('Fatal error during server startup:', error);
-  process.exit(1);
-} 
+  app.use((req, res) => {
+    res.status(500).json({ error: 'Server configuration error' });
+  });
+}
+
+// Create serverless handler for AWS Lambda
+export const handler = serverless(app);
+
+// Start local server if not in Lambda environment
+if (process.env.NODE_ENV !== 'production') {
+  const port = parseInt(process.env.PORT || '3000', 10);
+  app.listen(port, '0.0.0.0', () => {
+    console.log(`Server running at http://localhost:${port}`);
+  });
+}

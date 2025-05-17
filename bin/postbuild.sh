@@ -16,9 +16,9 @@ echo "Created directories"
 # Create a temporary directory for production dependencies
 echo "Installing production dependencies..."
 mkdir -p ./temp_prod_modules
-cp package.json yarn.lock .npmrc ./temp_prod_modules/
+cp package.json .npmrc ./temp_prod_modules/
 cd ./temp_prod_modules
-yarn install --production --no-optional
+pnpm install --prod
 cd ..
 echo "Installed production dependencies"
 
@@ -42,7 +42,6 @@ fi
 
 # Copy package files
 cp package.json ./.amplify-hosting/artifacts/compute/default/package.json
-cp yarn.lock ./.amplify-hosting/artifacts/compute/default/yarn.lock
 cp .npmrc ./.amplify-hosting/artifacts/compute/default/.npmrc
 cp deploy-manifest.json ./.amplify-hosting/deploy-manifest.json
 
@@ -50,7 +49,6 @@ cp deploy-manifest.json ./.amplify-hosting/deploy-manifest.json
 echo "Setting permissions..."
 chmod -R 755 ./.amplify-hosting/artifacts/compute/default
 chmod 644 ./.amplify-hosting/artifacts/compute/default/package.json
-chmod 644 ./.amplify-hosting/artifacts/compute/default/yarn.lock
 chmod 644 ./.amplify-hosting/artifacts/compute/default/.npmrc
 
 # Clean up

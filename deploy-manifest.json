@@ -4,7 +4,7 @@
     "/api/*": {
       "function": {
         "runtime": "nodejs20.x",
-        "handler": "index.js",
+        "handler": "index.handler",
         "memorySize": 512,
         "source": "/artifacts/compute/default",
         "environment": {
@@ -15,7 +15,7 @@
     "/_health": {
       "function": {
         "runtime": "nodejs20.x",
-        "handler": "index.js",
+        "handler": "index.handler",
         "memorySize": 512,
         "source": "/artifacts/compute/default",
         "environment": {
