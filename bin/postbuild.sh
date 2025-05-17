@@ -3,44 +3,47 @@
 # Exit on error
 set -e
 
+echo "Starting post-build process..."
+
 # Create the amplify hosting directory structure
 mkdir -p .amplify-hosting/compute/default/client
 mkdir -p .amplify-hosting/compute/default/server
 mkdir -p .amplify-hosting/static
 
-# Copy the client build
-cp -r dist/client/* .amplify-hosting/compute/default/client/
+echo "Created directory structure"
+
+# Copy the client build (if exists)
+if [ -d "dist/client" ]; then
+  echo "Copying client build..."
+  cp -r dist/client/* .amplify-hosting/compute/default/client/
+  # Copy static files to static directory
+  cp -r dist/client/favicon.ico .amplify-hosting/static/ 2>/dev/null || true
+  cp -r dist/client/robots.txt .amplify-hosting/static/ 2>/dev/null || true
+else
+  echo "Warning: dist/client directory not found"
+fi
 
 # Copy the server build
-cp -r dist/api/* .amplify-hosting/compute/default/server/
-
-# Copy static files
-cp -r public/* .amplify-hosting/static/
-
-# Copy package.json for server dependencies
-cp package.json .amplify-hosting/compute/default/
-
-# Copy deployment manifest
-cp deploy-manifest.json .amplify-hosting/
-
-# Copy client build
-cp -r dist/client/* .amplify-hosting/compute/default/client/
-
-# Copy server build
-cp -r dist/server/* .amplify-hosting/compute/default/server/
-
-# Copy static files
-cp -r dist/client/favicon.ico .amplify-hosting/static/ || true
-cp -r dist/client/robots.txt .amplify-hosting/static/ || true
+if [ -d "dist/api" ]; then
+  echo "Copying server build..."
+  cp -r dist/api/* .amplify-hosting/compute/default/server/
+else
+  echo "Warning: dist/api directory not found"
+fi
 
 # Copy package files for production dependencies
+echo "Copying package files..."
 cp package.json .amplify-hosting/compute/default/
-# Only copy pnpm-lock.yaml if it exists
 if [ -f pnpm-lock.yaml ]; then
   cp pnpm-lock.yaml .amplify-hosting/compute/default/
 fi
 
+# Copy deployment manifest
+echo "Copying deployment manifest..."
+cp deploy-manifest.json .amplify-hosting/
+
 # Install production dependencies in the artifacts directory
+echo "Installing production dependencies..."
 cd .amplify-hosting/compute/default
 pnpm install --prod --no-frozen-lockfile
 
