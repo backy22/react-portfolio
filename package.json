@@ -15,14 +15,16 @@
     "esbuild": "^0.25.4",
     "express": "^4.21.2",
     "node-fetch": "^3.3.2",
+    "serverless-http": "^3.2.0",
     "vite": "^6.3.5"
   },
   "scripts": {
     "dev": "concurrently \"vite\" \"NODE_ENV=development tsx watch server/index.ts\"",
-    "prebuild": "rm -rf dist node_modules/.vite",
-    "build": "npm run build:frontend && npm run build:server",
+    "clean": "rm -rf dist node_modules/.vite .amplify-hosting",
+    "build": "npm run clean && npm run build:frontend && npm run build:server && npm run postbuild",
     "build:frontend": "vite build",
     "build:server": "tsc -p server/tsconfig.json",
+    "postbuild": "bash ./bin/postbuild.sh",
     "preview": "vite preview",
     "start": "NODE_ENV=production node dist/server/index.js"
   },
@@ -44,7 +46,6 @@
     "react-dom": "^18.2.0",
     "react-router": "^7.6.0",
     "rollup": "^3.29.5",
-    "serverless-http": "^3.2.0",
     "ts-node": "^10.9.2",
     "tsx": "^4.19.4",
     "typescript": "^4.9.5"

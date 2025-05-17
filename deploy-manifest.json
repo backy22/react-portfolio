@@ -1,33 +1,21 @@
 {
   "version": 1,
-  "paths": {
-    "/api/*": {
-      "function": {
-        "runtime": "nodejs20.x",
-        "handler": "index.handler",
-        "memorySize": 512,
-        "source": "/artifacts/compute/default",
-        "environment": {
-          "NODE_ENV": "production"
-        }
+  "routes": [
+    {
+      "source": "/api/*",
+      "target": "/artifacts/compute/default",
+      "handler": "server/index.handler",
+      "environment": {
+        "NODE_ENV": "production"
       }
     },
-    "/_health": {
-      "function": {
-        "runtime": "nodejs20.x",
-        "handler": "index.handler",
-        "memorySize": 512,
-        "source": "/artifacts/compute/default",
-        "environment": {
-          "NODE_ENV": "production"
-        }
-      }
-    },
-    "/*": {
-      "source": "/artifacts/static",
-      "headers": {
-        "cache-control": "public, max-age=0, must-revalidate"
+    {
+      "source": "/_health",
+      "target": "/artifacts/compute/default",
+      "handler": "server/index.handler",
+      "environment": {
+        "NODE_ENV": "production"
       }
     }
-  }
+  ]
 } 

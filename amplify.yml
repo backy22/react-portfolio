@@ -1,26 +1,33 @@
 version: 1
 applications:
-  - frontend:
+  - appRoot: .
+    backend:
       phases:
         preBuild:
           commands:
             - nvm use 20
             - npm install -g pnpm
             - pnpm install
-            - echo "PORT=8080" > .env
             - echo "NOTION_API_KEY=${NOTION_API_KEY}" >> .env
             - echo "NOTION_DATABASE_ID=${NOTION_DATABASE_ID}" >> .env
         build:
           commands:
             - NODE_ENV=production pnpm build
-            - chmod +x bin/postbuild.sh
-            - ./bin/postbuild.sh
+    frontend:
+      phases:
+        preBuild:
+          commands:
+            - nvm use 20
+            - npm install -g pnpm
+            - pnpm install
+        build:
+          commands:
+            - NODE_ENV=production pnpm build:frontend
       artifacts:
-        baseDirectory: .amplify-hosting
+        baseDirectory: .amplify-hosting/static
         files:
           - '**/*'
       cache:
         paths:
           - node_modules/**/*
-          - .pnpm-store/**/*
-    appRoot: . 
+          - .pnpm-store/**/* 
