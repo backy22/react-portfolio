@@ -25,7 +25,15 @@
     {
       "name": "default",
       "runtime": "nodejs20.x",
-      "entrypoint": "src/index.js"
+      "entrypoint": "src/index.js",
+      "healthCheck": {
+        "path": "/_health",
+        "initialDelaySeconds": 10,
+        "periodSeconds": 5,
+        "timeoutSeconds": 5,
+        "successThreshold": 1,
+        "failureThreshold": 3
+      }
     }
   ]
 } 

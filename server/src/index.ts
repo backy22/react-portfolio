@@ -19,6 +19,10 @@ if (!envConfig.NOTION_API_KEY) {
 
 const app = express();
 const port = parseInt(envConfig.PORT, 10);
+
+// Trust proxy - required for Amplify
+app.set('trust proxy', 1);
+
 const allowedOrigins = [
   'http://localhost:5173', // Vite's default port
   'https://ayatsubakino.com', // Your production domain
@@ -48,6 +52,11 @@ app.use(cors({
 
 app.use(express.json());
 
+// Health check endpoint
+app.get('/_health', (req, res) => {
+  res.status(200).json({ status: 'healthy' });
+});
+
 app.get('/', (req, res) => {
   console.log('Received request to /');
   res.send('Hello World!');
@@ -75,13 +84,15 @@ app.get('/api/posts', async (req, res) => {
   }
 });
 
+// Error handling middleware
+app.use((err: any, req: express.Request, res: express.Response, next: express.NextFunction) => {
+  console.error('Global error handler:', err);
+  res.status(500).json({ error: 'Internal Server Error' });
+});
+
 // Start server
 const server = app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
-  console.log('Try accessing:');
-  console.log(`- http://localhost:${port}/`);
-  console.log(`- http://localhost:${port}/api/test`);
-  console.log(`- http://localhost:${port}/api/posts`);
+  console.log(`Server is running on port ${port}`);
 });
 
 // Add error handling

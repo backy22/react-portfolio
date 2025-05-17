@@ -23,24 +23,4 @@ applications:
           - '**/*'
       cache:
         paths:
-          - node_modules/**/*
-  
-  - appRoot: server
-    backend:
-      phases:
-        preBuild:
-          commands:
-            - npm ci
-        build:
-          commands:
-            - npm run build
-        postBuild:
-          commands:
-            - npm run server &
-      artifacts:
-        baseDirectory: ../dist/server
-        files:
-          - '**/*'
-      cache:
-        paths:
           - node_modules/**/* 
