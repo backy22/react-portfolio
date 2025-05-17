@@ -3,9 +3,25 @@
 # Exit on error
 set -e
 
-# Create artifacts directory
-mkdir -p .amplify-hosting/compute/default
+# Create the amplify hosting directory structure
+mkdir -p .amplify-hosting/compute/default/client
+mkdir -p .amplify-hosting/compute/default/server
 mkdir -p .amplify-hosting/static
+
+# Copy the client build
+cp -r dist/client/* .amplify-hosting/compute/default/client/
+
+# Copy the server build
+cp -r dist/api/* .amplify-hosting/compute/default/server/
+
+# Copy static files
+cp -r public/* .amplify-hosting/static/
+
+# Copy package.json for server dependencies
+cp package.json .amplify-hosting/compute/default/
+
+# Copy deployment manifest
+cp deploy-manifest.json .amplify-hosting/
 
 # Copy client build
 cp -r dist/client/* .amplify-hosting/compute/default/client/

@@ -3,7 +3,7 @@
     "target": "ES2020",
     "module": "ES2020",
     "moduleResolution": "node",
-    "outDir": "../dist/server",
+    "outDir": "../dist/api",
     "rootDir": ".",
     "strict": true,
     "esModuleInterop": true,
@@ -13,7 +13,8 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "allowSyntheticDefaultImports": true,
-    "types": ["node"]
+    "types": ["node"],
+    "composite": true
   },
   "include": ["./**/*"],
   "exclude": ["../node_modules"],

@@ -1,21 +1,19 @@
 {
-  "version": 1,
-  "routes": [
-    {
-      "source": "/api/*",
-      "target": "/artifacts/compute/default",
-      "handler": "server/index.handler",
-      "environment": {
-        "NODE_ENV": "production"
-      }
-    },
-    {
-      "source": "/_health",
-      "target": "/artifacts/compute/default",
-      "handler": "server/index.handler",
-      "environment": {
-        "NODE_ENV": "production"
+  "name": "react-portfolio",
+  "type": "api",
+  "app": {
+    "compute": {
+      "default": {
+        "entrypoint": "server/server.js",
+        "runtime": "nodejs20",
+        "buildCommands": [],
+        "esbuild": false,
+        "minify": false,
+        "sourcemap": false,
+        "installCommands": [
+          "yarn install"
+        ]
       }
     }
-  ]
+  }
 } 

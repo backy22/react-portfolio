@@ -19,14 +19,14 @@
     "vite": "^6.3.5"
   },
   "scripts": {
-    "dev": "concurrently \"vite\" \"NODE_ENV=development tsx watch server/index.ts\"",
+    "dev": "concurrently \"vite\" \"NODE_ENV=development tsx watch api/index.ts\"",
     "clean": "rm -rf dist node_modules/.vite .amplify-hosting",
     "build": "npm run clean && npm run build:frontend && npm run build:server && npm run postbuild",
     "build:frontend": "vite build",
-    "build:server": "tsc -p server/tsconfig.json",
+    "build:server": "tsc -p api/tsconfig.json",
     "postbuild": "bash ./bin/postbuild.sh",
     "preview": "vite preview",
-    "start": "NODE_ENV=production node dist/server/index.js"
+    "start": "NODE_ENV=production node dist/api/index.js"
   },
   "devDependencies": {
     "@babel/runtime": "^7.23.8",
