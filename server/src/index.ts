@@ -2,8 +2,19 @@ import express from 'express';
 import cors from 'cors';
 import { getBlogPosts } from './notion.js';
 import dotenv from 'dotenv';
+import path from 'path';
 
+// Load environment variables
 dotenv.config();
+
+// Debug environment
+console.log('Environment variables loaded:', {
+  PORT: process.env.PORT,
+  NODE_ENV: process.env.NODE_ENV,
+  FRONTEND_URL: process.env.FRONTEND_URL,
+  // Don't log sensitive keys, just check if they exist
+  NOTION_API_KEY: process.env.NOTION_API_KEY ? 'Set' : 'Not set'
+});
 
 const app = express();
 const port = process.env.PORT || 3002;
@@ -13,12 +24,16 @@ const allowedOrigins = [
   process.env.FRONTEND_URL, // Optional: from environment variable
 ].filter(Boolean);
 
+console.log('Allowed origins:', allowedOrigins);
+
 // CORS setup
 app.use(cors({
   origin: (origin, callback) => {
+    console.log('Incoming request from origin:', origin);
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
+      console.log('CORS blocked origin:', origin);
       callback(new Error('Not allowed by CORS'));
     }
   },

@@ -8,5 +8,6 @@ mkdir -p ./.amplify-hosting/static
 cp -r ./dist/server ./.amplify-hosting/compute/default
 cp -r ./node_modules ./.amplify-hosting/compute/default/node_modules
 cp -r ./dist ./.amplify-hosting/static
+cp .env ./.amplify-hosting/compute/default/.env
 
 cp deploy-manifest.json ./.amplify-hosting/deploy-manifest.json 

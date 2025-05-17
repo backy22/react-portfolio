@@ -7,6 +7,13 @@ applications:
           commands:
             - nvm use 20
             - npm ci
+            # Create env file from Amplify environment variables
+            - |
+              cat << EOF > .env
+              PORT=8080
+              NOTION_API_KEY=$NOTION_API_KEY
+              FRONTEND_URL=$FRONTEND_URL
+              EOF
         build:
           commands:
             - npm run build
