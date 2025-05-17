@@ -5,12 +5,15 @@ applications:
       phases:
         preBuild:
           commands:
+            - nvm use 20
             - npm ci
         build:
           commands:
             - npm run build
+            - chmod +x bin/postbuild.sh
+            - ./bin/postbuild.sh
       artifacts:
-        baseDirectory: dist
+        baseDirectory: .amplify-hosting
         files:
           - '**/*'
       cache:

@@ -34,8 +34,7 @@
     "build": "vite build && tsc -p server/tsconfig.json",
     "preview": "vite preview",
     "server": "node dist/server/src/index.js",
-    "server:dev": "nodemon --exec 'node --loader ts-node/esm' server/src/index.ts",
-    "server:build": "tsc -p server/tsconfig.json"
+    "server:dev": "nodemon --exec 'node --loader ts-node/esm' server/src/index.ts"
   },
   "eslintConfig": {
     "extends": "react-app"
