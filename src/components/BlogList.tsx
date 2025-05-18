@@ -1,4 +1,4 @@
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import BlogHeader from './BlogHeader';
 import { blogContainer, blogContent, blogGrid, blogCard, blogCardTitle, blogDate } from './Blog.css';
