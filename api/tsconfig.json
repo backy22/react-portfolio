@@ -19,5 +19,5 @@
   "include": ["./**/*"],
   "exclude": ["../node_modules"],
   "compileOnSave": true,
-  "files": ["index.ts"]
+  "files": ["server.ts"]
 } 

@@ -5,7 +5,7 @@ import { fileURLToPath } from 'url';
 import path from 'path';
 import type { APIGatewayProxyHandler } from 'aws-lambda';
 import serverless from 'serverless-http';
-import { getBlogPosts } from './src/notion.js';
+import { getBlogPosts } from './notion.js';
 
 // Initialize Express app
 const app = express();
