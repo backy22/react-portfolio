@@ -47,12 +47,12 @@ if (!process.env.NOTION_DATABASE_ID) {
 
 async function createServer() {
   const app = express();
-  const port = !isProduction ? 5173 : (parseInt(process.env.PORT || '3000', 10));
+  const port = !isProduction ? 5173 : (parseInt(process.env.PORT || '9898', 10));
   const host = '0.0.0.0';
 
   // Enhanced CORS configuration
   const allowedOrigins = isProduction
-    ? ['https://ayatsubakino.com', 'http://localhost:3000']
+    ? ['https://ayatsubakino.com', 'http://localhost:3000', 'http://localhost:9898']
     : ['http://localhost:5173', 'http://127.0.0.1:5173', 'http://localhost:3000'];
 
   app.use(cors({
