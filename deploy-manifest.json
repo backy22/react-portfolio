@@ -1,49 +1,43 @@
 {
   "version": 1,
   "framework": { "name": "express", "version": "4.21.2" },
-  "name": "react-portfolio",
-  "artifacts": {
-    "baseDirectory": ".amplify-hosting",
-    "files": [
-      "**/*"
-    ]
-  },
-  "type": "custom",
-  "appRoot": ".",
-  "backend": {
-    "preBuild": {
-      "commands": [
-        "nvm use 20",
-        "npm install -g yarn",
-        "yarn install"
-      ]
+  "routes": [
+    {
+      "path": "/../client/assets/*",
+      "target": "static",
+      "cacheControl": "public, max-age=31536000, immutable"
     },
-    "build": {
-      "commands": [
-        "NODE_ENV=production yarn build"
-      ]
-    }
-  },
-  "frontend": {
-    "phases": {
-      "preBuild": {
-        "commands": [
-          "nvm use 20",
-          "npm install -g yarn",
-          "yarn install"
-        ]
+    {
+      "path": "/*.*",
+      "target": {
+        "kind": "Static",
+        "cacheControl": "public, max-age=0, must-revalidate"
       },
-      "build": {
-        "commands": [
-          "NODE_ENV=production yarn build"
-        ]
+      "fallback": {
+        "kind": "Compute",
+        "src": "default"
       }
     },
-    "artifacts": {
-      "baseDirectory": ".amplify-hosting/static",
-      "files": [
-        "**/*"
-      ]
+    {
+      "path": "/api/*",
+      "target": {
+        "kind": "Compute",
+        "src": "default"
+      }
+    },
+    {
+      "path": "/*",
+      "target": {
+        "kind": "Compute",
+        "src": "default"
+      }
     }
-  }
+  ],
+  "computeResources": [
+    {
+      "name": "default",
+      "runtime": "nodejs20.x",
+      "entrypoint": "server/server.js"
+    }
+  ]
 } 
