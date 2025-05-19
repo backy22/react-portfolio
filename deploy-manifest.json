@@ -45,7 +45,7 @@
   "computeResources": [
     {
       "name": "default",
-      "entrypoint": "server/server.js",
+      "entrypoint": "server.js",
       "runtime": "nodejs20.x"
     }
   ]
