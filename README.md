@@ -6,12 +6,11 @@ A modern, responsive portfolio website built with React 18 and React Router 6. V
 
 - React 18
 - React Router 7
-- Vite
+- Vite + SSR
 - Vanilla Extract
 - Node.js 20+
 - Typescript
 - Notion API
-- Express
 
 ## 🛠️ Setup and Installation
 
@@ -25,13 +24,13 @@ cd react-portfolio
 2. Install dependencies:
 
 ```bash
-pnpm install
+yarn install
 ```
 
 3. Start the development server:
 
 ```bash
-pnpm dev
+yarn dev
 ```
 
 The app will be running at [http://localhost:5173](http://localhost:5173)
@@ -41,7 +40,7 @@ The app will be running at [http://localhost:5173](http://localhost:5173)
 To create a production build:
 
 ```bash
-pnpm build
+yarn build
 ```
 
 ## 🔧 Requirements

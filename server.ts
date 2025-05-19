@@ -154,21 +154,30 @@ async function createServer() {
         const { render: ssrRender } = await vite.ssrLoadModule('/src/entry-server.js');
         render = ssrRender;
       } else {
+        console.log('Production SSR: Reading template from:', path.resolve(__dirname, '../client/index.html'));
         template = fs.readFileSync(path.resolve(__dirname, '../client/index.html'), 'utf-8');
-        // @ts-expect-error: will only exists in production
-        const { render: ssrRender } = await import('./entry-server.js');
+        console.log('Production SSR: Loading entry-server from:', path.resolve(__dirname, './entry-server.js'));
+        const { render: ssrRender } = await import(path.resolve(__dirname, './entry-server.js'));
         render = ssrRender;
       }
 
       // 4. Render the app HTML
+      console.log('Rendering app HTML for URL:', url);
       const appHtml = render(url);
-
+      
       // 5. Inject the app-rendered HTML into the template
       const html = template.replace(`<!--ssr-outlet-->`, appHtml);
-
+      
       // 6. Send the rendered HTML back
       res.status(200).set({ 'Content-Type': 'text/html' }).end(html);
     } catch (e: any) {
+      console.error('SSR Error:', {
+        message: e.message,
+        stack: e.stack,
+        phase: e.phase || 'unknown',
+        url: req.originalUrl,
+        headers: req.headers
+      });
       if (!isProduction) {
         vite.ssrFixStacktrace(e);
       }
