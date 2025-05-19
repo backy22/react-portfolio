@@ -6,23 +6,21 @@ applications:
         preBuild:
           commands:
             - nvm use 20
-            - npm install -g pnpm
-            - pnpm install --no-frozen-lockfile
-            - echo "NOTION_API_KEY=${NOTION_API_KEY}" >> .env
-            - echo "NOTION_DATABASE_ID=${NOTION_DATABASE_ID}" >> .env
+            - npm install -g yarn
+            - yarn install
         build:
           commands:
-            - NODE_ENV=production pnpm build
+            - NODE_ENV=production yarn build
     frontend:
       phases:
         preBuild:
           commands:
             - nvm use 20
-            - npm install -g pnpm
-            - pnpm install --no-frozen-lockfile
+            - npm install -g yarn
+            - yarn install
         build:
           commands:
-            - NODE_ENV=production pnpm build:frontend
+            - NODE_ENV=production yarn build
       artifacts:
         baseDirectory: .amplify-hosting/static
         files:
@@ -30,4 +28,4 @@ applications:
       cache:
         paths:
           - node_modules/**/*
-          - .pnpm-store/**/* 
+          - .yarn-cache/**/* 

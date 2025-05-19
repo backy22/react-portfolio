@@ -4,14 +4,14 @@
   "app": {
     "compute": {
       "default": {
-        "entrypoint": "server/index.js",
+        "entrypoint": "server/server.js",
         "runtime": "nodejs20",
         "buildCommands": [],
         "esbuild": false,
         "minify": false,
         "sourcemap": false,
         "installCommands": [
-          "pnpm install --no-frozen-lockfile"
+          "yarn install"
         ]
       }
     }
