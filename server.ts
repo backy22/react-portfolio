@@ -5,7 +5,6 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import { createServer as createViteServer } from 'vite';
-import serverless from 'serverless-http';
 import { getBlogPosts } from './api/notion.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
