@@ -47,12 +47,12 @@ if (!process.env.NOTION_DATABASE_ID) {
 
 async function createServer() {
   const app = express();
-  const port = !isProduction ? 5173 : (parseInt(process.env.PORT || '9898', 10));
+  const port = !isProduction ? 5173 : (parseInt(process.env.PORT || '3000', 10));
   const host = '0.0.0.0';
 
   // Enhanced CORS configuration
   const allowedOrigins = isProduction
-    ? ['https://ayatsubakino.com', 'http://localhost:3000', 'http://localhost:9898']
+    ? ['https://ayatsubakino.com', 'http://localhost:3000', 'https://main.d1g8l8x1bz6ldu.amplifyapp.com']
     : ['http://localhost:5173', 'http://127.0.0.1:5173', 'http://localhost:3000'];
 
   app.use(cors({
@@ -246,9 +246,6 @@ async function createServer() {
     console.error('Failed to start server:', error);
     process.exit(1);
   }
-
-  // Create serverless handler for AWS Lambda
-  return serverless(app);
 }
 
 // Initialize server and export handler
