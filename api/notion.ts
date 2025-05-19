@@ -6,14 +6,15 @@ import path from 'path';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-// Default to 'development' if NODE_ENV is not set
-const isProduction = (process.env.NODE_ENV || 'development') === 'production';
+
+// Check if we're in AWS Amplify (production) by checking if we're in /var/task
+const isProduction = __dirname.startsWith('/var/task');
 
 // Log current environment for debugging
 console.log('Current environment:', {
-  NODE_ENV: process.env.NODE_ENV || 'development',
   dirname: __dirname,
-  cwd: process.cwd()
+  cwd: process.cwd(),
+  isProduction
 });
 
 // Load environment variables with different paths for dev and prod
