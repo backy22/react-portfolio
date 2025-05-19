@@ -1,4 +1,6 @@
 {
+  "version": 1,
+  "framework": { "name": "express", "version": "4.21.2" },
   "name": "react-portfolio",
   "artifacts": {
     "baseDirectory": ".amplify-hosting",
