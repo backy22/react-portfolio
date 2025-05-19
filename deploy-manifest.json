@@ -3,9 +3,18 @@
   "framework": { "name": "express", "version": "4.21.2" },
   "routes": [
     {
-      "path": "/../client/assets/*",
-      "target": "static",
-      "cacheControl": "public, max-age=31536000, immutable"
+     "path": "/../client/assets/*",
+      "target": {
+        "kind": "Static",
+        "cacheControl": "public, max-age=31536000, immutable"
+      }
+    },
+    {
+      "path": "/static/*",
+      "target": {
+        "kind": "Static",
+        "cacheControl": "public, max-age=31536000, immutable"
+      }
     },
     {
       "path": "/*.*",
@@ -36,8 +45,8 @@
   "computeResources": [
     {
       "name": "default",
-      "runtime": "nodejs20.x",
-      "entrypoint": "server/server.js"
+      "entrypoint": "server/server.js",
+      "runtime": "nodejs20.x"
     }
   ]
 } 
