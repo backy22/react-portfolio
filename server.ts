@@ -100,7 +100,10 @@ async function createServer() {
     // Use vite's connect instance as middleware
     app.use(vite.middlewares);
   } else {
+    // Serve static files from client directory
     app.use(express.static(path.resolve(__dirname, '../client')));
+    // Serve assets specifically
+    app.use('/assets', express.static(path.resolve(__dirname, '../client/assets')));
 
     // API Routes for production
     app.get('/api/health', (req, res) => {
@@ -154,10 +157,20 @@ async function createServer() {
         const { render: ssrRender } = await vite.ssrLoadModule('/src/entry-server.js');
         render = ssrRender;
       } else {
-        console.log('Production SSR: Reading template from:', path.resolve(__dirname, '../client/index.html'));
-        template = fs.readFileSync(path.resolve(__dirname, '../client/index.html'), 'utf-8');
-        console.log('Production SSR: Loading entry-server from:', path.resolve(__dirname, './entry-server.js'));
-        const { render: ssrRender } = await import(path.resolve(__dirname, './entry-server.js'));
+        const clientDir = path.resolve(__dirname, '../client');
+        const serverDir = __dirname;
+        
+        console.log('Production SSR: Directories:', {
+          clientDir,
+          serverDir,
+          cwd: process.cwd()
+        });
+
+        console.log('Production SSR: Reading template from:', path.resolve(clientDir, 'index.html'));
+        template = fs.readFileSync(path.resolve(clientDir, 'index.html'), 'utf-8');
+        
+        console.log('Production SSR: Loading entry-server from:', path.resolve(serverDir, 'entry-server.js'));
+        const { render: ssrRender } = await import(path.resolve(serverDir, 'entry-server.js'));
         render = ssrRender;
       }
 
