@@ -1,19 +1,47 @@
 {
   "name": "react-portfolio",
-  "type": "api",
-  "app": {
-    "compute": {
-      "default": {
-        "entrypoint": "server/server.js",
-        "runtime": "nodejs20",
-        "buildCommands": [],
-        "esbuild": false,
-        "minify": false,
-        "sourcemap": false,
-        "installCommands": [
+  "artifacts": {
+    "baseDirectory": ".amplify-hosting",
+    "files": [
+      "**/*"
+    ]
+  },
+  "type": "custom",
+  "appRoot": ".",
+  "backend": {
+    "preBuild": {
+      "commands": [
+        "nvm use 20",
+        "npm install -g yarn",
+        "yarn install"
+      ]
+    },
+    "build": {
+      "commands": [
+        "NODE_ENV=production yarn build"
+      ]
+    }
+  },
+  "frontend": {
+    "phases": {
+      "preBuild": {
+        "commands": [
+          "nvm use 20",
+          "npm install -g yarn",
           "yarn install"
         ]
+      },
+      "build": {
+        "commands": [
+          "NODE_ENV=production yarn build"
+        ]
       }
+    },
+    "artifacts": {
+      "baseDirectory": ".amplify-hosting/static",
+      "files": [
+        "**/*"
+      ]
     }
   }
 } 
