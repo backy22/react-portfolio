@@ -52,7 +52,7 @@ async function createServer() {
 
   // Enhanced CORS configuration
   const allowedOrigins = isProduction
-    ? ['https://ayatsubakino.com', 'http://localhost:3000', 'https://main.d1g8l8x1bz6ldu.amplifyapp.com']
+    ? ['https://ayatsubakino.com', 'http://localhost:3000', 'https://www.ayatsubakino.com']
     : ['http://localhost:5173', 'http://127.0.0.1:5173', 'http://localhost:3000'];
 
   app.use(cors({

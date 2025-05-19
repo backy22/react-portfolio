@@ -7,6 +7,7 @@ import path from 'path';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
+// TODO: wanted to use process.env.NODE_ENV but process.env.NODE_ENV is undefined in production.
 // Check if we're in AWS Amplify (production) by checking if we're in /var/task
 const isProduction = __dirname.startsWith('/var/task');
 

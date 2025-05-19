@@ -15,7 +15,7 @@ export interface BlogPost {
 const isDevelopment = process.env.NODE_ENV === 'development';
 const API_BASE_URL = isDevelopment 
   ? '/api'  // Use localhost in development
-  : 'https://main.d1g8l8x1bz6ldu.amplifyapp.com/api';  // Use the deployed URL in production
+  : 'https://www.ayatsubakino.com/api';  // Use the deployed URL in production
 
 const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
