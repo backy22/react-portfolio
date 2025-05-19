@@ -12,7 +12,10 @@ export interface BlogPost {
   blocks: Block[];
 }
 
-const API_BASE_URL = 'http://localhost:3000/api';
+const isDevelopment = process.env.NODE_ENV === 'development';
+const API_BASE_URL = isDevelopment 
+  ? '/api'  // In development, use relative path since Vite handles proxying
+  : 'http://localhost:3000/api';  // In production, use absolute URL
 
 const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
