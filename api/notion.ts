@@ -6,11 +6,12 @@ import path from 'path';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-const isProduction = process.env.NODE_ENV === 'production';
+// Default to 'development' if NODE_ENV is not set
+const isProduction = (process.env.NODE_ENV || 'development') === 'production';
 
 // Log current environment for debugging
 console.log('Current environment:', {
-  NODE_ENV: process.env.NODE_ENV,
+  NODE_ENV: process.env.NODE_ENV || 'development',
   dirname: __dirname,
   cwd: process.cwd()
 });
