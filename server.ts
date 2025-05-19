@@ -11,42 +11,35 @@ import { getBlogPosts } from './api/notion.js';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const isProduction = process.env.NODE_ENV === 'production';
 
-// Load environment variables from .env file only in development
-if (!isProduction) {
-  dotenv.config();
-}
+// Load environment variables
+dotenv.config();
 
 // Log environment status
 console.log('Environment Check:', {
   NODE_ENV: process.env.NODE_ENV,
   HAS_NOTION_KEY: !!process.env.NOTION_API_KEY,
   HAS_NOTION_DB: !!process.env.NOTION_DATABASE_ID,
-  PWD: process.cwd(),
-  ENV_SOURCE: process.env.RUNNING_IN_AWS ? 'AWS Amplify' : '.env file'
+  PWD: process.cwd()
 });
 
-// In production (AWS), environment variables should come from Amplify environment variables
-const NOTION_API_KEY = process.env.NOTION_API_KEY;
-const NOTION_DATABASE_ID = process.env.NOTION_DATABASE_ID;
-
 // Validate required environment variables
-if (!NOTION_API_KEY) {
+if (!process.env.NOTION_API_KEY) {
   console.error('Missing required environment variable: NOTION_API_KEY');
-  console.error('Available environment variables:', Object.keys(process.env).sort());
+  console.error('Current env vars:', Object.keys(process.env));
   if (isProduction) {
     // In production, we'll continue but log the error
-    console.error('Running in production without NOTION_API_KEY - please check AWS Amplify environment variables');
+    console.error('Running in production without NOTION_API_KEY');
   } else {
     process.exit(1);
   }
 }
 
-if (!NOTION_DATABASE_ID) {
+if (!process.env.NOTION_DATABASE_ID) {
   console.error('Missing required environment variable: NOTION_DATABASE_ID');
-  console.error('Available environment variables:', Object.keys(process.env).sort());
+  console.error('Current env vars:', Object.keys(process.env));
   if (isProduction) {
     // In production, we'll continue but log the error
-    console.error('Running in production without NOTION_DATABASE_ID - please check AWS Amplify environment variables');
+    console.error('Running in production without NOTION_DATABASE_ID');
   } else {
     process.exit(1);
   }

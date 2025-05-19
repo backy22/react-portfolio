@@ -26,10 +26,11 @@
     "clean": "rm -rf dist node_modules/.vite .amplify-hosting",
     "build:client": "tsc && vite build",
     "build:server": "tsc -p tsconfig.node.json && vite build --ssr src/entry-server.tsx",
-    "build": "yarn clean && yarn build:client && yarn build:server && sh postbuild.sh",
+    "build": "yarn clean && yarn build:client && yarn build:server && yarn postbuild",
     "preview": "NODE_ENV=production node server.js",
     "start": "NODE_ENV=production node server.js",
-    "serve": "node dist/server/entry-server.js"
+    "serve": "node dist/server/entry-server.js",
+    "postbuild": "chmod +x postbuild.sh && ./postbuild.sh"
   },
   "devDependencies": {
     "@babel/runtime": "^7.23.8",
