@@ -14,15 +14,35 @@ const isProduction = process.env.NODE_ENV === 'production';
 // Load environment variables
 dotenv.config();
 
+// Log environment status
+console.log('Environment Check:', {
+  NODE_ENV: process.env.NODE_ENV,
+  HAS_NOTION_KEY: !!process.env.NOTION_API_KEY,
+  HAS_NOTION_DB: !!process.env.NOTION_DATABASE_ID,
+  PWD: process.cwd()
+});
+
 // Validate required environment variables
 if (!process.env.NOTION_API_KEY) {
   console.error('Missing required environment variable: NOTION_API_KEY');
-  process.exit(1);
+  console.error('Current env vars:', Object.keys(process.env));
+  if (isProduction) {
+    // In production, we'll continue but log the error
+    console.error('Running in production without NOTION_API_KEY');
+  } else {
+    process.exit(1);
+  }
 }
 
 if (!process.env.NOTION_DATABASE_ID) {
   console.error('Missing required environment variable: NOTION_DATABASE_ID');
-  process.exit(1);
+  console.error('Current env vars:', Object.keys(process.env));
+  if (isProduction) {
+    // In production, we'll continue but log the error
+    console.error('Running in production without NOTION_DATABASE_ID');
+  } else {
+    process.exit(1);
+  }
 }
 
 async function createServer() {
