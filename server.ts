@@ -5,7 +5,6 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import { createServer as createViteServer } from 'vite';
-import type { APIGatewayProxyHandler } from 'aws-lambda';
 import serverless from 'serverless-http';
 import { getBlogPosts } from './api/notion.js';
 
@@ -152,14 +151,15 @@ async function createServer() {
         template = await vite.transformIndexHtml(url, template);
 
         // 3. Load the server entry
-        const { render: ssrRender } = await vite.ssrLoadModule('/src/entry-server.tsx');
+        const { render: ssrRender } = await vite.ssrLoadModule('/src/entry-server.js');
         render = ssrRender;
       } else {
         template = fs.readFileSync(
           path.resolve(__dirname, 'dist/client/index.html'),
           'utf-8'
         );
-        const { render: ssrRender } = await import('./dist/server/entry-server.js');
+        // @ts-expect-error: will only exists in production
+        const { render: ssrRender } = await import('./entry-server.js');
         render = ssrRender;
       }
 

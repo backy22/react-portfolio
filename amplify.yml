@@ -1,31 +1,19 @@
 version: 1
-applications:
-  - appRoot: .
-    backend:
-      phases:
-        preBuild:
-          commands:
-            - nvm use 20
-            - npm install -g yarn
-            - yarn install
-        build:
-          commands:
-            - NODE_ENV=production yarn build
-    frontend:
-      phases:
-        preBuild:
-          commands:
-            - nvm use 20
-            - npm install -g yarn
-            - yarn install
-        build:
-          commands:
-            - NODE_ENV=production yarn build
-      artifacts:
-        baseDirectory: .amplify-hosting/static
-        files:
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - nvm use 20
+        - corepack enable
+        - yarn cache clean
+        - yarn install
+    build:
+      commands:
+        - yarn build
+  artifacts:
+      baseDirectory: .amplify-hosting
+      files:
           - '**/*'
-      cache:
-        paths:
-          - node_modules/**/*
-          - .yarn-cache/**/* 
+  cache:
+    paths:
+      - node_modules/**/*

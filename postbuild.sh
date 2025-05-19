@@ -1,17 +1,19 @@
 #!/bin/bash
 
-# Create the amplify-hosting directory structure
-mkdir -p .amplify-hosting/compute/default
-mkdir -p .amplify-hosting/static
+# Copies the build output to .amplify-hosting in the format amplify expects per https://docs.aws.amazon.com/amplify/latest/userguide/deploy-express-server.html
 
-# Copy the client build
-cp -r dist/client/* .amplify-hosting/static/
+rm -rf ./.amplify-hosting
 
-# Copy the server build
-cp -r dist/server/* .amplify-hosting/compute/default/
+mkdir -p ./.amplify-hosting/compute
 
-# Copy package.json
-cp package.json .amplify-hosting/compute/default/
+cp -r ./dist ./.amplify-hosting/compute/default
+cp -r ./node_modules ./.amplify-hosting/compute/default/node_modules
 
-# Copy deployment manifest
-cp deploy-manifest.json .amplify-hosting/
+cp -r public ./.amplify-hosting/static
+
+cp deploy-manifest.json ./.amplify-hosting/deploy-manifest.json
+cp package.json ./.amplify-hosting/compute/default/package.json
+if [ -f .env ]; then
+    cp .env ./.amplify-hosting/compute/default/.env
+fi
+echo "NODE_ENV=production" >> ./.amplify-hosting/compute/default/.env
