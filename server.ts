@@ -32,7 +32,7 @@ async function createServer() {
 
   // Enhanced CORS configuration
   const allowedOrigins = isProduction
-    ? ['https://ayatsubakino.com']
+    ? ['https://ayatsubakino.com', 'http://localhost:3000']
     : ['http://localhost:5173', 'http://127.0.0.1:5173', 'http://localhost:3000'];
 
   app.use(cors({
@@ -100,7 +100,7 @@ async function createServer() {
     // Use vite's connect instance as middleware
     app.use(vite.middlewares);
   } else {
-    app.use(express.static(path.resolve(__dirname, 'dist/client')));
+    app.use(express.static(path.resolve(__dirname, '../client')));
 
     // API Routes for production
     app.get('/api/health', (req, res) => {
@@ -154,10 +154,7 @@ async function createServer() {
         const { render: ssrRender } = await vite.ssrLoadModule('/src/entry-server.js');
         render = ssrRender;
       } else {
-        template = fs.readFileSync(
-          path.resolve(__dirname, 'dist/client/index.html'),
-          'utf-8'
-        );
+        template = fs.readFileSync(path.resolve(__dirname, '../client/index.html'), 'utf-8');
         // @ts-expect-error: will only exists in production
         const { render: ssrRender } = await import('./entry-server.js');
         render = ssrRender;
