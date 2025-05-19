@@ -14,8 +14,8 @@ export interface BlogPost {
 
 const isDevelopment = process.env.NODE_ENV === 'development';
 const API_BASE_URL = isDevelopment 
-  ? '/api'  // In development, use relative path since Vite handles proxying
-  : 'http://localhost:3000/api';  // In production, use absolute URL
+  ? '/api'  // Use localhost in development
+  : 'https://main.d1g8l8x1bz6ldu.amplifyapp.com/api';  // Use the deployed URL in production
 
 const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
