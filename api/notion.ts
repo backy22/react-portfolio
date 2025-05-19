@@ -6,22 +6,61 @@ import path from 'path';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+const isProduction = process.env.NODE_ENV === 'production';
 
-dotenv.config({ path: path.resolve(__dirname, '../.env') });
+// Log current environment for debugging
+console.log('Current environment:', {
+  NODE_ENV: process.env.NODE_ENV,
+  dirname: __dirname,
+  cwd: process.cwd()
+});
 
+// Load environment variables with different paths for dev and prod
+if (isProduction) {
+  // In production, .env is in the compute/default directory
+  // Since we're in dist/server/api, we need to go up two levels
+  const envPath = path.resolve(__dirname, '../../.env');
+  console.log('Loading production env from:', envPath);
+  dotenv.config({ path: envPath });
+} else {
+  // In development, we need to go up to the project root
+  const envPath = path.resolve(__dirname, '../.env');
+  console.log('Loading development env from:', envPath);
+  dotenv.config({ path: envPath });
+}
+
+// Log environment status after loading
+console.log('Environment status:', {
+  hasNotionKey: !!process.env.NOTION_API_KEY,
+  hasNotionDb: !!process.env.NOTION_DATABASE_ID,
+  envPath: isProduction ? path.resolve(__dirname, '../../.env') : path.resolve(__dirname, '../.env')
+});
+
+// Handle missing environment variables differently in production vs development
 if (!process.env.NOTION_API_KEY) {
-  throw new Error('Missing NOTION_API_KEY environment variable');
+  const message = 'Missing NOTION_API_KEY environment variable';
+  console.error(message);
+  
+  if (!isProduction) {
+    throw new Error(message);
+  }
 }
 
 if (!process.env.NOTION_DATABASE_ID) {
-  throw new Error('Missing NOTION_DATABASE_ID environment variable');
+  const message = 'Missing NOTION_DATABASE_ID environment variable';
+  console.error('Missing NOTION_DATABASE_ID environment variable');
+  
+  if (!isProduction) {
+    throw new Error(message);
+  }
 }
 
-export const notion = new Client({
+// Initialize Notion client only if we have the required credentials
+export const notion = process.env.NOTION_API_KEY ? new Client({
   auth: process.env.NOTION_API_KEY,
-});
+}) : null;
 
-export const databaseId = process.env.NOTION_DATABASE_ID;
+export const databaseId = process.env.NOTION_DATABASE_ID || '';
 
 interface Block {
   type: string;
@@ -39,6 +78,12 @@ export interface NotionBlogPost {
 
 async function getPageBlocks(pageId: string): Promise<Block[]> {
   try {
+    // Return empty array if Notion client is not initialized
+    if (!notion) {
+      console.warn('Notion client not initialized - missing credentials');
+      return [];
+    }
+
     const blocks: Block[] = [];
     let cursor: string | undefined;
     
@@ -94,6 +139,12 @@ function renderBlock(block: Block): string {
 
 export async function getBlogPosts(): Promise<NotionBlogPost[]> {
   try {
+    // Return empty array if Notion client is not initialized
+    if (!notion || !databaseId) {
+      console.warn('Notion client or database ID not initialized - missing credentials');
+      return [];
+    }
+
     const response = await notion.databases.query({
       database_id: databaseId,
       sorts: [
@@ -133,6 +184,6 @@ export async function getBlogPosts(): Promise<NotionBlogPost[]> {
       code: error.code,
       stack: error.stack
     });
-    throw error;
+    return []; // Return empty array instead of throwing in production
   }
 } 
