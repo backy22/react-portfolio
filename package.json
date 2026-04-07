@@ -19,7 +19,7 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^7.6.0",
     "serverless-http": "^3.2.0",
-    "vite": "^6.3.5"
+    "vite": "^6.4.2"
   },
   "scripts": {
     "dev": "NODE_ENV=development tsx watch server.ts",
